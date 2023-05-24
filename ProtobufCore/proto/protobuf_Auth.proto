@@ -5,24 +5,27 @@ option optimize_for = SPEED;
 enum CommandID
 {
     CMD_DEFAUL = 0;//缺省不使用
-	CMD_LOGIN = 2001;  //登录 对应上行|下行 Protobuf_Login | Protobuf_Login_RESP
+	
+	CMD_LOGIN = 2001;  //登录上行 | 下行 对应 Protobuf_Login | Protobuf_Login_RESP
 }
 
 enum ErrorCode
 {
-    ERROR_DEFAUL = 0;//缺省
+    ERROR_DEFAUL = 0;//缺省不使用
 	ERROR_OK = 1;   //成功
 }
 
 enum LoginType
 {
-    BaseDefault = 0;//缺省
+    BaseDefault = 0;//缺省不使用
 	HaoYueAuth = 1;
+	BF3 = 3;
+	BF4 = 4;
 }
 
 enum DeviceType
 {
-    Default = 0;//缺省
+    DeviceType_Default = 0;//缺省不使用
 	PC = 1;
 	Android = 2;
 	IOS = 3;
@@ -39,8 +42,8 @@ enum LoginResultStatus
 //登录数据上行
 message Protobuf_Login
 {
-	LoginType loginType = 1;//登录操作类型
-	DeviceType deviceType = 2;//设备类型 
+	LoginType loginType = 1;//登录操作类型 [0]皓月通行证 [3] 皓月BF3 [4] 皓月BF4
+	DeviceType deviceType = 2;//设备类型 [0]PC [1]AndroidPad预留 [3]IPad预留
 	string Account = 3;//用户名
 	string Password = 4;//密码
 }

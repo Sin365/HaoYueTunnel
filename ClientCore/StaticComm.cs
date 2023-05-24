@@ -13,5 +13,6 @@ namespace ClientCore
         public static string IP;
         public static int Port;
         public static NetworkHelper networkHelper;
+        public static AppLogin login;
     }
 }

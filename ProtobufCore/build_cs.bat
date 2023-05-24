@@ -2,8 +2,7 @@
 
 set "PROTOC_EXE=%cd%\protoc.exe"
 set "WORK_DIR=%cd%\proto"
-set "CS_OUT_PATH=%cd%\Target"
-::if not exist %CS_OUT_PATH% md %CS_OUT_PATH%
+set "CS_OUT_PATH=%cd%\out"
 
 echo "==>>buildStart"
 for /f "delims=" %%i in ('dir /b proto "proto/*.proto"') do (
@@ -13,6 +12,6 @@ for /f "delims=" %%i in ('dir /b proto "proto/*.proto"') do (
 echo "==>>build finish"
 echo "==>>copy cs"
 
-copy %cd%\Target\ ..\Protobuf\
+copy %CS_OUT_PATH% ..\Protobuf\
 
 pause
