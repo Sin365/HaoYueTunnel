@@ -47,7 +47,8 @@ namespace ServerCore
             {
                 switch ((CommandID)CMDID)
                 {
-                    case CommandID.CmdLogin:ServerManager.g_Login.UserLogin(sk, data); break;
+                    case CommandID.CmdLogin: ServerManager.g_Login.UserLogin(sk, data); break;
+                    case CommandID.CmdChatmsg: ServerManager.g_Chat.RecvPlayerChatMsg(sk, data);break;
                 }
             }
             catch (Exception ex)

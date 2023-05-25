@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClientCore
 {
-    public class StaticComm
+    public class App
     {
         public static string TokenStr;
         public static long RID = -1;
@@ -14,5 +14,16 @@ namespace ClientCore
         public static int Port;
         public static NetworkHelper networkHelper;
         public static AppLogin login;
+        public static AppChat chat;
+
+        public static void Init(string IP, int port)
+        {
+            networkHelper = new NetworkHelper();
+            login = new AppLogin();
+            chat = new AppChat();
+            networkHelper.Init(IP, port);
+        }
     }
+
+
 }

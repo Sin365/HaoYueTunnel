@@ -9,7 +9,7 @@ namespace ServerCore
         {
             ServerManager.g_Log.Debug("收到新的登录请求");
             Protobuf_Login msg = NetBase.DeSerizlize<Protobuf_Login>(reqData);
-            ClientInfo cinfo = ServerManager.g_ClientMgr.JoinNewClient(_socket);
+            ClientInfo cinfo = ServerManager.g_ClientMgr.JoinNewClient(msg,_socket);
 
             byte[] respData = NetBase.Serizlize(new Protobuf_Login_RESP() 
             {

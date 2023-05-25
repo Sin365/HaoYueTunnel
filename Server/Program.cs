@@ -10,7 +10,7 @@ while (true)
     switch (Command)
     {
         case "list":
-            Console.WriteLine("当前在线:" + ServerManager.g_ClientMgr.ClientList.Count());
+            Console.WriteLine("当前在线:" + ServerManager.g_ClientMgr.GetOnlineClient());
             break;
         default:
             Console.WriteLine("未知命令" + CommandStr);

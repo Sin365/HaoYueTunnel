@@ -59,6 +59,7 @@ namespace ClientCore
                 switch ((CommandID)CMDID)
                 {
                     case CommandID.CmdLogin:  break;
+                    case CommandID.CmdChatmsg: App.chat.RecvChatMsg(data); break;
                 }
             }
             catch (Exception ex)

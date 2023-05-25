@@ -4,14 +4,14 @@ namespace ClientCore
 {
     public class AppLogin
     {
-        public void Login()
+        public void Login(string Account)
         {
             Protobuf_Login msg = new Protobuf_Login()
             {
                 LoginType = 0,
-                //TODO
+                Account = Account,
             };
-            StaticComm.networkHelper.SendToServer((int)CommandID.CmdLogin, NetBase.Serizlize(msg));
+            App.networkHelper.SendToServer((int)CommandID.CmdLogin, NetBase.Serizlize(msg));
         }
     }
 }
