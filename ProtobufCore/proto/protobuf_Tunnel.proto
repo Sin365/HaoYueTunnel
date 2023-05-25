@@ -1,0 +1,56 @@
+syntax = "proto3";
+package AxibugProtobuf;
+option optimize_for = SPEED;
+
+
+//获取在线用户列表 上行
+message Protobuf_UserList
+{
+}
+
+//获取在线用户列表 下行
+message Protobuf_UserList_RESP
+{
+	int32 UserCount = 1;//玩家数量
+	repeated UserMiniInfo UserList = 2;//用户列表
+}
+
+//用户上线 下行
+message Protobuf_UserJoin_RESP
+{
+	UserMiniInfo UserInfo = 1;//用户
+}
+
+//用户下线 下行
+message Protobuf_UserLeave_RESP
+{
+	int64 UID = 1;//用户ID
+}
+
+//更新在线用户状态 下行
+message Protobuf_UserState_RESP
+{
+	int64 UID = 1;//用户ID
+	int32 State = 2;//状态
+}
+
+message UserMiniInfo
+{
+	int64 UID = 1;//用户ID
+	string NickName = 2;//昵称
+	int32 State = 3;//状态
+}
+
+////////////////////
+
+//UDP服务器信息 上行
+message Protobuf_UDPServer_Info
+{
+}
+
+//UDP服务器信息 下行
+message Protobuf_UDPServer_Info_RESP
+{
+	string UDPSev_IP = 1;//UDP服务器IP
+	int32 UDPSev_Port = 2;//UDP服务器端口
+}

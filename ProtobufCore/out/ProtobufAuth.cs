@@ -33,15 +33,17 @@ namespace AxibugProtobuf {
             "dHVzGAQgASgOMiEuQXhpYnVnUHJvdG9idWYuTG9naW5SZXN1bHRTdGF0dXMi",
             "IwoQUHJvdG9idWZfQ2hhdE1zZxIPCgdDaGF0TXNnGAEgASgJIkgKFVByb3Rv",
             "YnVmX0NoYXRNc2dfUkVTUBIQCghOaWNrTmFtZRgBIAEoCRIPCgdDaGF0TXNn",
-            "GAIgASgJEgwKBERhdGUYAyABKAMqPQoJQ29tbWFuZElEEg4KCkNNRF9ERUZB",
-            "VUwQABIOCglDTURfTE9HSU4Q0Q8SEAoLQ01EX0NIQVRNU0cQoR8qKwoJRXJy",
-            "b3JDb2RlEhAKDEVSUk9SX0RFRkFVTBAAEgwKCEVSUk9SX09LEAEqPgoJTG9n",
-            "aW5UeXBlEg8KC0Jhc2VEZWZhdWx0EAASDgoKSGFvWXVlQXV0aBABEgcKA0JG",
-            "MxADEgcKA0JGNBAEKksKCkRldmljZVR5cGUSFgoSRGV2aWNlVHlwZV9EZWZh",
-            "dWx0EAASBgoCUEMQARILCgdBbmRyb2lkEAISBwoDSU9TEAMSBwoDUFNWEAQq",
-            "TgoRTG9naW5SZXN1bHRTdGF0dXMSIQodTG9naW5SZXN1bHRTdGF0dXNfQmFz",
-            "ZURlZmF1bHQQABIGCgJPSxABEg4KCkFjY291bnRFcnIQAkICSAFiBnByb3Rv",
-            "Mw=="));
+            "GAIgASgJEgwKBERhdGUYAyABKAMqnAEKCUNvbW1hbmRJRBIOCgpDTURfREVG",
+            "QVVMEAASDgoJQ01EX0xPR0lOENAPEhAKC0NNRF9DSEFUTVNHEKAfEhgKE0NN",
+            "RF9VU0VSX09OTElORUxJU1QQiCcSEgoNQ01EX1VTRVJfSk9JThCnJxITCg5D",
+            "TURfVVNFUl9MRUFWRRCoJxIaChVDTURfVVNFUl9TVEFURV9VUERBVEUQqScq",
+            "KwoJRXJyb3JDb2RlEhAKDEVSUk9SX0RFRkFVTBAAEgwKCEVSUk9SX09LEAEq",
+            "PgoJTG9naW5UeXBlEg8KC0Jhc2VEZWZhdWx0EAASDgoKSGFvWXVlQXV0aBAB",
+            "EgcKA0JGMxADEgcKA0JGNBAEKksKCkRldmljZVR5cGUSFgoSRGV2aWNlVHlw",
+            "ZV9EZWZhdWx0EAASBgoCUEMQARILCgdBbmRyb2lkEAISBwoDSU9TEAMSBwoD",
+            "UFNWEAQqTgoRTG9naW5SZXN1bHRTdGF0dXMSIQodTG9naW5SZXN1bHRTdGF0",
+            "dXNfQmFzZURlZmF1bHQQABIGCgJPSxABEg4KCkFjY291bnRFcnIQAkICSAFi",
+            "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::AxibugProtobuf.CommandID), typeof(global::AxibugProtobuf.ErrorCode), typeof(global::AxibugProtobuf.LoginType), typeof(global::AxibugProtobuf.DeviceType), typeof(global::AxibugProtobuf.LoginResultStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -61,13 +63,29 @@ namespace AxibugProtobuf {
     /// </summary>
     [pbr::OriginalName("CMD_DEFAUL")] CmdDefaul = 0,
     /// <summary>
-    ///登录上行 | 下行 对应 Protobuf_Login | Protobuf_Login_RESP
+    ///登录 上行 | 下行 对应 Protobuf_Login | Protobuf_Login_RESP
     /// </summary>
-    [pbr::OriginalName("CMD_LOGIN")] CmdLogin = 2001,
+    [pbr::OriginalName("CMD_LOGIN")] CmdLogin = 2000,
     /// <summary>
-    ///登录上行 | 下行 对应 Protobuf_ChatMsg | Protobuf_ChatMsg_RESP
+    ///聊天 上行 | 下行 对应 Protobuf_ChatMsg | Protobuf_ChatMsg_RESP
     /// </summary>
-    [pbr::OriginalName("CMD_CHATMSG")] CmdChatmsg = 4001,
+    [pbr::OriginalName("CMD_CHATMSG")] CmdChatmsg = 4000,
+    /// <summary>
+    ///获取在线用户列表 上行 | 下行 对应 Protobuf_UserList | Protobuf_UserList_RESP
+    /// </summary>
+    [pbr::OriginalName("CMD_USER_ONLINELIST")] CmdUserOnlinelist = 5000,
+    /// <summary>
+    ///用户上线 下行 对应 Protobuf_UserOnline_RESP
+    /// </summary>
+    [pbr::OriginalName("CMD_USER_JOIN")] CmdUserJoin = 5031,
+    /// <summary>
+    ///用户下线 下行 对应 Protobuf_UserOffline_RESP
+    /// </summary>
+    [pbr::OriginalName("CMD_USER_LEAVE")] CmdUserLeave = 5032,
+    /// <summary>
+    ///更新在线用户状态 下行 对应 Protobuf_UserState_RESP
+    /// </summary>
+    [pbr::OriginalName("CMD_USER_STATE_UPDATE")] CmdUserStateUpdate = 5033,
   }
 
   public enum ErrorCode {

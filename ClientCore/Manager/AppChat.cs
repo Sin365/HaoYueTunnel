@@ -1,13 +1,16 @@
 ﻿using AxibugProtobuf;
-using System.Net.Sockets;
-using static ClientCore.Event.DelegateClass;
-using static HaoYueNet.ClientNetwork.NetworkHelperCore;
+using ClientCore.Common;
+using ClientCore.Event;
+using ClientCore.Network;
 
-namespace ClientCore
+namespace ClientCore.Manager
 {
     public class AppChat
     {
-        public event dg_Str_Str OnChatMsg;
+        public AppChat() 
+        {
+            NetMsg.Instance.RegNetMsgEvent((int)CommandID.CmdChatmsg, RecvChatMsg);
+        }
 
         public void SendChatMsg(string ChatMsg)
         {
@@ -15,13 +18,13 @@ namespace ClientCore
             {
                 ChatMsg = ChatMsg,
             };
-            App.networkHelper.SendToServer((int)CommandID.CmdChatmsg, NetBase.Serizlize(msg));
+            App.networkHelper.SendToServer((int)CommandID.CmdChatmsg, ProtoBufHelper.Serizlize(msg));
         }
 
         public void RecvChatMsg(byte[] reqData)
         {
-            Protobuf_ChatMsg_RESP msg = NetBase.DeSerizlize<Protobuf_ChatMsg_RESP>(reqData);
-            OnChatMsg(msg.NickName, msg.ChatMsg);
+            Protobuf_ChatMsg_RESP msg = ProtoBufHelper.DeSerizlize<Protobuf_ChatMsg_RESP>(reqData);
+            EventSystem.Instance.PostEvent(EEvent.OnChatMsg, msg.NickName, msg.ChatMsg);
         }
     }
 }

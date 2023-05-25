@@ -1,6 +1,7 @@
 ﻿using AxibugProtobuf;
+using ClientCore.Common;
 
-namespace ClientCore
+namespace ClientCore.Manager
 {
     public class AppLogin
     {
@@ -11,7 +12,7 @@ namespace ClientCore
                 LoginType = 0,
                 Account = Account,
             };
-            App.networkHelper.SendToServer((int)CommandID.CmdLogin, NetBase.Serizlize(msg));
+            App.networkHelper.SendToServer((int)CommandID.CmdLogin, ProtoBufHelper.Serizlize(msg));
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace ServerCore.Manager
+﻿namespace ClientCore.Manager
 {
     public class LogManager
     {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClientCore
+namespace ClientCore.Network
 {
     /// <summary>
     /// 继承网络库，以支持网络功能
@@ -55,12 +55,8 @@ namespace ClientCore
             NetworkDeBugLog("收到消息 CMDID =>" + CMDID + " ERRCODE =>" + ERRCODE + " 数据长度=>" + data.Length);
             try
             {
-                //根据协议ID走不同逻辑
-                switch ((CommandID)CMDID)
-                {
-                    case CommandID.CmdLogin:  break;
-                    case CommandID.CmdChatmsg: App.chat.RecvChatMsg(data); break;
-                }
+                //抛出网络数据
+                NetMsg.Instance.PostNetMsgEvent(CMDID, data);
             }
             catch (Exception ex)
             {

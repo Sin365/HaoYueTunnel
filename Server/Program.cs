@@ -1,4 +1,4 @@
-﻿using ServerCore;
+﻿using ServerCore.Manager;
 
 ServerManager.InitServer(23846);
 
@@ -10,7 +10,7 @@ while (true)
     switch (Command)
     {
         case "list":
-            Console.WriteLine("当前在线:" + ServerManager.g_ClientMgr.GetOnlineClient());
+            Console.WriteLine("当前在线:" + ServerManager.g_ClientMgr.GetOnlineClientCount());
             break;
         default:
             Console.WriteLine("未知命令" + CommandStr);

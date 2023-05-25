@@ -1,6 +1,8 @@
-﻿using System.Net;
+﻿using ServerCore.Event;
+using ServerCore.NetWork;
+using System.Net;
 
-namespace ServerCore
+namespace ServerCore.Manager
 {
     public static class ServerManager
     {
@@ -8,6 +10,7 @@ namespace ServerCore
         public static LogManager g_Log;
         public static LoginManager g_Login;
         public static ChatManager g_Chat;
+        public static P2PUserManager g_P2PMgr;
         public static IOCPNetWork g_SocketMgr;
 
         public static void InitServer(int port)
@@ -16,6 +19,7 @@ namespace ServerCore
             g_Log = new LogManager();
             g_Login = new LoginManager();
             g_Chat = new ChatManager();
+            g_P2PMgr = new P2PUserManager();
             g_SocketMgr = new IOCPNetWork(1024, 1024);
             g_SocketMgr.Init();
             g_SocketMgr.Start(new IPEndPoint(IPAddress.Any.Address, port));

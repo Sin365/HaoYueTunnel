@@ -1,8 +1,13 @@
 ﻿using ClientCore;
+using ClientCore.Event;
+
 App.Init("127.0.0.1", 23846);
 
-//注册
-App.chat.OnChatMsg += OnChatMsg;
+//注册事件
+EventSystem.Instance.RegisterEvent<long>(EEvent.UserJoin, OnUserJoin);
+EventSystem.Instance.RegisterEvent<long>(EEvent.UserLeave, OnUserLeave);
+
+EventSystem.Instance.RegisterEvent<string, string>(EEvent.OnChatMsg, OnChatMsg);
 
 while (true)
 {
@@ -38,4 +43,13 @@ while (true)
 void OnChatMsg(string str1, string str2)
 {
     Console.WriteLine($"[Chat]{str1}:{str2}");
+}
+
+void OnUserJoin(long UID)
+{
+    Console.WriteLine($"[User]用户{UID}上线");
+}
+void OnUserLeave(long UID)
+{
+    Console.WriteLine($"[User]用户{UID}下线");
 }

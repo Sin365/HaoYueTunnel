@@ -1,0 +1,27 @@
+syntax = "proto3";
+package AxibugProtobuf;
+option optimize_for = SPEED;
+
+enum UDPCommandID
+{
+    CMD_UDP_DEFAUL = 0;//缺省不使用
+	CMD_UDP_ToServer_HELLO = 20000;  //和服务器UDP建立连接 下行 对应 Protobuf_MakeTunnel_RESP
+}
+
+//ToServer Hello
+message Protobuf_UDP_TO_SERVER_HELLO
+{
+	int64 UID = 1;//用户ID
+}
+
+//ToServer Hello
+message Protobuf_UDP_TO_SERVER_HELLO_RESP
+{
+	int64 UID = 1;//用户ID
+}
+
+//P2PHello
+message Protobuf_UDP_P2P_HELLO
+{
+	int64 UID = 1;//用户ID
+}

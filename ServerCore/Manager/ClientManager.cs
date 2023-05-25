@@ -1,27 +1,36 @@
 ﻿using AxibugProtobuf;
+using ServerCore.Event;
 using System.Net.Sockets;
 using System.Timers;
 
-namespace ServerCore
+namespace ServerCore.Manager
 {
     public class ClientInfo
     {
         public long UID { get; set; }
-        public string Account { get; set; }
+        public string NickName { get; set; }
         public Socket _socket { get; set; }
         public bool IsOffline { get; set; } = false;
         public DateTime LogOutDT { get; set; }
+        public int State { get; set; } = 0;
     }
 
     public class ClientManager
     {
         private List<ClientInfo> ClientList = new List<ClientInfo>();
         private Dictionary<Socket, ClientInfo> _DictSocketClient = new Dictionary<Socket, ClientInfo>();
-        private Dictionary<long?, ClientInfo> _DictUIDClient = new Dictionary<long?, ClientInfo>();
+        private Dictionary<long, ClientInfo> _DictUIDClient = new Dictionary<long, ClientInfo>();
         private long TestUIDSeed = 0;
 
         private System.Timers.Timer _ClientCheckTimer;
         private long _RemoveOfflineCacheMin;
+
+
+        #region 事件
+
+
+        #endregion
+
         public void Init(long ticktime, long RemoveOfflineCacheMin)
         {
             //换算成毫秒
@@ -38,7 +47,7 @@ namespace ServerCore
             return ++TestUIDSeed;
         }
 
-        private void ClientCheckClearOffline_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        private void ClientCheckClearOffline_Elapsed(object sender, ElapsedEventArgs e)
         {
             DateTime CheckDT = DateTime.Now.AddMinutes(-1 * _RemoveOfflineCacheMin);
             ClientInfo[] OfflineClientlist = ClientList.Where(w => w.IsOffline == true && w.LogOutDT < CheckDT).ToArray();
@@ -72,11 +81,12 @@ namespace ServerCore
                 {
                     UID = GetNextUID(),
                     _socket = _socket,
-                    Account = data.Account,
+                    NickName = data.Account,
                     IsOffline = false,
                 };
                 AddClient(cinfo);
             }
+            EventSystem.Instance.PostEvent(EEvent.OnUserJoin, cinfo.UID);
             return cinfo;
         }
 
@@ -88,7 +98,7 @@ namespace ServerCore
         {
             try
             {
-                Console.WriteLine("追加连接玩家 UID=>" + clientInfo.UID + " | " + clientInfo.Account);
+                Console.WriteLine("追加连接玩家 UID=>" + clientInfo.UID + " | " + clientInfo.NickName);
                 lock (ClientList)
                 {
                     _DictUIDClient.Add(clientInfo.UID, clientInfo);
@@ -120,6 +130,10 @@ namespace ServerCore
             }
         }
 
+        public ClientInfo GetClientForUID(long UID)
+        {
+            return _DictUIDClient.ContainsKey(UID) ? _DictUIDClient[UID] : null;
+        }
 
         public ClientInfo GetClientForSocket(Socket sk)
         {
@@ -130,9 +144,9 @@ namespace ServerCore
         /// 获取在线玩家
         /// </summary>
         /// <returns></returns>
-        public List<ClientInfo> GetOnlineClientList()
+        public ClientInfo[] GetOnlineClientList()
         {
-            return ClientList.Where(w => w.IsOffline == false).ToList();
+            return ClientList.Where(w => w.IsOffline == false).ToArray();
         }
 
 
@@ -148,6 +162,7 @@ namespace ServerCore
             Console.WriteLine("标记玩家UID" + _DictSocketClient[sk].UID + "为离线");
             _DictSocketClient[sk].IsOffline = true;
             _DictSocketClient[sk].LogOutDT = DateTime.Now;
+            EventSystem.Instance.PostEvent(EEvent.OnUserLeave, _DictSocketClient[sk].UID);
         }
 
         public void RemoveClientForSocket(Socket sk)
@@ -162,7 +177,7 @@ namespace ServerCore
 
         public void ClientSendALL(int CMDID, int ERRCODE, byte[] data)
         {
-            ClientSend(ClientList,CMDID, ERRCODE, data);
+            ClientSend(ClientList, CMDID, ERRCODE, data);
         }
 
         /// <summary>
@@ -174,11 +189,11 @@ namespace ServerCore
         /// <param name="data"></param>
         public void ClientSend(List<ClientInfo> _toclientlist, int CMDID, int ERRCODE, byte[] data)
         {
-            for (int i = 0; i < _toclientlist.Count();i++)
+            for (int i = 0; i < _toclientlist.Count(); i++)
             {
                 if (_toclientlist[i] == null || _toclientlist[i].IsOffline)
                     continue;
-                ServerManager.g_SocketMgr.SendToSocket(_toclientlist[i]._socket, CMDID,ERRCODE,data);
+                ServerManager.g_SocketMgr.SendToSocket(_toclientlist[i]._socket, CMDID, ERRCODE, data);
             }
         }
 
@@ -202,7 +217,7 @@ namespace ServerCore
             ServerManager.g_SocketMgr.SendToSocket(_c._socket, CMDID, ERRCODE, data);
         }
 
-        public int GetOnlineClient()
+        public int GetOnlineClientCount()
         {
             return ClientList.Where(w => !w.IsOffline).Count();
         }
