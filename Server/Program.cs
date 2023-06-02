@@ -1,6 +1,6 @@
 ﻿using ServerCore.Manager;
 
-ServerManager.InitServer(23846);
+ServerManager.InitServer(23846, 23847);
 
 while (true)
 {

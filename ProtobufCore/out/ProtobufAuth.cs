@@ -33,17 +33,18 @@ namespace AxibugProtobuf {
             "dHVzGAQgASgOMiEuQXhpYnVnUHJvdG9idWYuTG9naW5SZXN1bHRTdGF0dXMi",
             "IwoQUHJvdG9idWZfQ2hhdE1zZxIPCgdDaGF0TXNnGAEgASgJIkgKFVByb3Rv",
             "YnVmX0NoYXRNc2dfUkVTUBIQCghOaWNrTmFtZRgBIAEoCRIPCgdDaGF0TXNn",
-            "GAIgASgJEgwKBERhdGUYAyABKAMqnAEKCUNvbW1hbmRJRBIOCgpDTURfREVG",
+            "GAIgASgJEgwKBERhdGUYAyABKAMqzQEKCUNvbW1hbmRJRBIOCgpDTURfREVG",
             "QVVMEAASDgoJQ01EX0xPR0lOENAPEhAKC0NNRF9DSEFUTVNHEKAfEhgKE0NN",
             "RF9VU0VSX09OTElORUxJU1QQiCcSEgoNQ01EX1VTRVJfSk9JThCnJxITCg5D",
-            "TURfVVNFUl9MRUFWRRCoJxIaChVDTURfVVNFUl9TVEFURV9VUERBVEUQqScq",
-            "KwoJRXJyb3JDb2RlEhAKDEVSUk9SX0RFRkFVTBAAEgwKCEVSUk9SX09LEAEq",
-            "PgoJTG9naW5UeXBlEg8KC0Jhc2VEZWZhdWx0EAASDgoKSGFvWXVlQXV0aBAB",
-            "EgcKA0JGMxADEgcKA0JGNBAEKksKCkRldmljZVR5cGUSFgoSRGV2aWNlVHlw",
-            "ZV9EZWZhdWx0EAASBgoCUEMQARILCgdBbmRyb2lkEAISBwoDSU9TEAMSBwoD",
-            "UFNWEAQqTgoRTG9naW5SZXN1bHRTdGF0dXMSIQodTG9naW5SZXN1bHRTdGF0",
-            "dXNfQmFzZURlZmF1bHQQABIGCgJPSxABEg4KCkFjY291bnRFcnIQAkICSAFi",
-            "BnByb3RvMw=="));
+            "TURfVVNFUl9MRUFWRRCoJxIaChVDTURfVVNFUl9TVEFURV9VUERBVEUQqScS",
+            "GAoTQ01EX1RDUFRVTk5FTF9IRUxMTxCJJxIVChBDTURfVENQVFVOTkVMX0RP",
+            "EIonKj4KCUVycm9yQ29kZRIQCgxFUlJPUl9ERUZBVUwQABIMCghFUlJPUl9P",
+            "SxABEhEKDUVSUk9SX05PVEZBTkQQZCo+CglMb2dpblR5cGUSDwoLQmFzZURl",
+            "ZmF1bHQQABIOCgpIYW9ZdWVBdXRoEAESBwoDQkYzEAMSBwoDQkY0EAQqSwoK",
+            "RGV2aWNlVHlwZRIWChJEZXZpY2VUeXBlX0RlZmF1bHQQABIGCgJQQxABEgsK",
+            "B0FuZHJvaWQQAhIHCgNJT1MQAxIHCgNQU1YQBCpOChFMb2dpblJlc3VsdFN0",
+            "YXR1cxIhCh1Mb2dpblJlc3VsdFN0YXR1c19CYXNlRGVmYXVsdBAAEgYKAk9L",
+            "EAESDgoKQWNjb3VudEVychACQgJIAWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::AxibugProtobuf.CommandID), typeof(global::AxibugProtobuf.ErrorCode), typeof(global::AxibugProtobuf.LoginType), typeof(global::AxibugProtobuf.DeviceType), typeof(global::AxibugProtobuf.LoginResultStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -86,6 +87,14 @@ namespace AxibugProtobuf {
     ///更新在线用户状态 下行 对应 Protobuf_UserState_RESP
     /// </summary>
     [pbr::OriginalName("CMD_USER_STATE_UPDATE")] CmdUserStateUpdate = 5033,
+    /// <summary>
+    ///TCP打洞请求 上行 | 下行 对应 Protobuf_TcpTunnel_HellToSev | Protobuf_TcpTunnel_HellToSev_RESP
+    /// </summary>
+    [pbr::OriginalName("CMD_TCPTUNNEL_HELLO")] CmdTcptunnelHello = 5001,
+    /// <summary>
+    ///TCP打洞请求 下行 对应 Protobuf_TcpTunnel_DoTunnel | Protobuf_TcpTunnel_DoTunnel_RESP
+    /// </summary>
+    [pbr::OriginalName("CMD_TCPTUNNEL_DO")] CmdTcptunnelDo = 5002,
   }
 
   public enum ErrorCode {
@@ -97,6 +106,10 @@ namespace AxibugProtobuf {
     ///成功
     /// </summary>
     [pbr::OriginalName("ERROR_OK")] ErrorOk = 1,
+    /// <summary>
+    ///用户不存在
+    /// </summary>
+    [pbr::OriginalName("ERROR_NOTFAND")] ErrorNotfand = 100,
   }
 
   public enum LoginType {

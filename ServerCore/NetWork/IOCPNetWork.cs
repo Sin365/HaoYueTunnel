@@ -61,18 +61,10 @@ namespace ServerCore.NetWork
         /// <param name="sk"></param>
         public override void OnClose(AsyncUserToken token)
         {
-            OnCloseToOld(token.Socket);
-        }
-
-        /// <summary>
-        /// 断开连接
-        /// </summary>
-        /// <param name="sk"></param>
-        public void OnCloseToOld(Socket sk)
-        {
             Console.WriteLine("断开连接");
-            ServerManager.g_ClientMgr.SetClientOfflineForSocket(sk);
+            //TODO 要删除不同的
+            ServerManager.g_ClientMgr.SetClientOfflineForSocket(token.Socket);
+            s
         }
-
     }
 }

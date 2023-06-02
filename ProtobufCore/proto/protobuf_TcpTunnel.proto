@@ -1,0 +1,32 @@
+syntax = "proto3";
+package AxibugProtobuf;
+option optimize_for = SPEED;
+
+//Tcp打洞请求
+message Protobuf_TcpTunnel_HellToSev
+{
+	int64 UID = 1;//自己的UID
+}
+
+//Tcp打洞请求 下行
+message Protobuf_TcpTunnel_HellToSev_RESP
+{
+}
+
+//Tcp打洞请求
+message Protobuf_TcpTunnel_DoTunnel
+{
+	int64 UID = 1;//自己的UID
+	int64 targetUID = 2;//目标的UID
+}
+
+
+//双方信息 下行
+message Protobuf_TcpTunnel_DoTunnel_RESP
+{
+	int64 targetUID = 1;//目标的UID
+	string myIP = 2;//自己的IP
+	int32 myPort = 3;//自己的Port
+	string otherIP = 4;//对方的IP
+	int32 otherPort = 5;//对方的Port
+}
