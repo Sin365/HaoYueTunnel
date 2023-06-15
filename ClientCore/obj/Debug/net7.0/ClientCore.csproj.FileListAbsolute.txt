@@ -1,0 +1,17 @@
+F:\Sin365\HaoYueTunnel\ClientCore\bin\Debug\net7.0\ClientCore.deps.json
+F:\Sin365\HaoYueTunnel\ClientCore\bin\Debug\net7.0\ClientCore.dll
+F:\Sin365\HaoYueTunnel\ClientCore\bin\Debug\net7.0\ClientCore.pdb
+F:\Sin365\HaoYueTunnel\ClientCore\bin\Debug\net7.0\Google.Protobuf.dll
+F:\Sin365\HaoYueTunnel\ClientCore\bin\Debug\net7.0\HaoYueNet.ClientNetwork.dll
+F:\Sin365\HaoYueTunnel\ClientCore\bin\Debug\net7.0\Protobuf.dll
+F:\Sin365\HaoYueTunnel\ClientCore\bin\Debug\net7.0\Protobuf.pdb
+F:\Sin365\HaoYueTunnel\ClientCore\obj\Debug\net7.0\ClientCore.csproj.AssemblyReference.cache
+F:\Sin365\HaoYueTunnel\ClientCore\obj\Debug\net7.0\ClientCore.GeneratedMSBuildEditorConfig.editorconfig
+F:\Sin365\HaoYueTunnel\ClientCore\obj\Debug\net7.0\ClientCore.AssemblyInfoInputs.cache
+F:\Sin365\HaoYueTunnel\ClientCore\obj\Debug\net7.0\ClientCore.AssemblyInfo.cs
+F:\Sin365\HaoYueTunnel\ClientCore\obj\Debug\net7.0\ClientCore.csproj.CoreCompileInputs.cache
+F:\Sin365\HaoYueTunnel\ClientCore\obj\Debug\net7.0\ClientCore.csproj.CopyComplete
+F:\Sin365\HaoYueTunnel\ClientCore\obj\Debug\net7.0\ClientCore.dll
+F:\Sin365\HaoYueTunnel\ClientCore\obj\Debug\net7.0\refint\ClientCore.dll
+F:\Sin365\HaoYueTunnel\ClientCore\obj\Debug\net7.0\ClientCore.pdb
+F:\Sin365\HaoYueTunnel\ClientCore\obj\Debug\net7.0\ref\ClientCore.dll

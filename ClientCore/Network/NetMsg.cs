@@ -18,6 +18,11 @@
             InterRegNetMsgEvent(cmd, callback);
         }
 
+        public void RegNetMsgEvent(int cmd, Action<long,byte[]> callback)
+        {
+            InterRegNetMsgEvent(cmd, callback);
+        }
+
         private void InterRegNetMsgEvent(int cmd, Delegate callback)
         {
             if (netEventDic.ContainsKey(cmd))
@@ -42,6 +47,11 @@
             InterUnregisterCMD(evt, tempDelegate);
         }
 
+        public void UnregisterCMD(int evt, Action<long, byte[]> callback)
+        {
+            Delegate tempDelegate = callback;
+            InterUnregisterCMD(evt, tempDelegate);
+        }
         private void InterUnregisterCMD(int cmd, Delegate callback)
         {
             if (netEventDic.ContainsKey(cmd))
@@ -53,6 +63,25 @@
         #endregion
 
         #region PostEvent
+        public void PostNetMsgEvent(int cmd, long uid, byte[] arg)
+        {
+            List<Delegate> eventList = GetNetEventDicList(cmd);
+            if (eventList != null)
+            {
+                foreach (Delegate callback in eventList)
+                {
+                    try
+                    {
+                        ((Action<long,byte[]>)callback)(uid,arg);
+                    }
+                    catch (Exception e)
+                    {
+                        App.log.Error(e.Message);
+                    }
+                }
+            }
+        }
+
         public void PostNetMsgEvent(int cmd, byte[] arg)
         {
             List<Delegate> eventList = GetNetEventDicList(cmd);

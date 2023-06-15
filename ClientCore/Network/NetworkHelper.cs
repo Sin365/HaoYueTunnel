@@ -66,7 +66,14 @@ namespace ClientCore.Network
             try
             {
                 //抛出网络数据
-                NetMsg.Instance.PostNetMsgEvent(CMDID, data);
+                if (mServerType == ServerType.TcpP2PTarget)
+                {
+                    NetMsg.Instance.PostNetMsgEvent(CMDID, mUID,data);
+                }
+                else
+                {
+                    NetMsg.Instance.PostNetMsgEvent(CMDID, data);
+                }
             }
             catch (Exception ex)
             {

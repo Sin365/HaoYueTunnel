@@ -17,6 +17,7 @@ namespace ClientCore
         public static LogManager log;
         public static ClientManager clientMgr;
         public static P2PTcp p2ptcp;
+        public static P2PChat p2pChat;
         public static NetworkHelper networkMain;
         public static NetworkHelper networkTcp2S;
         public static AppLogin login;
@@ -32,6 +33,7 @@ namespace ClientCore
             clientMgr = new ClientManager();
             clientMgr.SetIpData(IP, port, tcptunnelport);
             p2ptcp = new P2PTcp();
+            p2pChat = new P2PChat();
             networkMain = new NetworkHelper(Enum.ServerType.MainServer);
             networkMain.Init(IP, port);
             //networkTcp2S = new NetworkHelper(Enum.ServerType.TcpTunnelServer);

@@ -1,0 +1,14 @@
+F:\Sin365\HaoYueTunnel\Protobuf\bin\Debug\net7.0\Protobuf.deps.json
+F:\Sin365\HaoYueTunnel\Protobuf\bin\Debug\net7.0\Protobuf.dll
+F:\Sin365\HaoYueTunnel\Protobuf\bin\Debug\net7.0\Protobuf.pdb
+F:\Sin365\HaoYueTunnel\Protobuf\bin\Debug\net7.0\Google.Protobuf.dll
+F:\Sin365\HaoYueTunnel\Protobuf\obj\Debug\net7.0\Protobuf.csproj.AssemblyReference.cache
+F:\Sin365\HaoYueTunnel\Protobuf\obj\Debug\net7.0\Protobuf.GeneratedMSBuildEditorConfig.editorconfig
+F:\Sin365\HaoYueTunnel\Protobuf\obj\Debug\net7.0\Protobuf.AssemblyInfoInputs.cache
+F:\Sin365\HaoYueTunnel\Protobuf\obj\Debug\net7.0\Protobuf.AssemblyInfo.cs
+F:\Sin365\HaoYueTunnel\Protobuf\obj\Debug\net7.0\Protobuf.csproj.CoreCompileInputs.cache
+F:\Sin365\HaoYueTunnel\Protobuf\obj\Debug\net7.0\Protobuf.csproj.CopyComplete
+F:\Sin365\HaoYueTunnel\Protobuf\obj\Debug\net7.0\Protobuf.dll
+F:\Sin365\HaoYueTunnel\Protobuf\obj\Debug\net7.0\refint\Protobuf.dll
+F:\Sin365\HaoYueTunnel\Protobuf\obj\Debug\net7.0\Protobuf.pdb
+F:\Sin365\HaoYueTunnel\Protobuf\obj\Debug\net7.0\ref\Protobuf.dll

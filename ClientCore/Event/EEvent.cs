@@ -13,6 +13,7 @@ namespace ClientCore.Event
         UserJoin,
         UserLeave,
         OnChatMsg,
+        OnP2PChatMsg,
 
         //打洞流程
         TcpTunnelHelloResp,

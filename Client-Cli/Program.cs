@@ -10,6 +10,7 @@ EventSystem.Instance.RegisterEvent(EEvent.TcpTunnelHelloResp, OnTcpTunnelHelloRe
 EventSystem.Instance.RegisterEvent<long>(EEvent.UserJoin, OnUserJoin);
 EventSystem.Instance.RegisterEvent<long>(EEvent.UserLeave, OnUserLeave);
 EventSystem.Instance.RegisterEvent<string, string>(EEvent.OnChatMsg, OnChatMsg);
+EventSystem.Instance.RegisterEvent<long, string>(EEvent.OnP2PChatMsg, OnP2PChatMsg);
 
 while (true)
 {
@@ -57,6 +58,14 @@ while (true)
             }
             App.chat.SendChatMsg(CmdArr[1]);
             break;
+        case "tusay":
+            if (CmdArr.Length < 3)
+            {
+                Console.WriteLine("缺省参数");
+                return;
+            }
+            App.p2pChat.SendChatMsg(Convert.ToInt64(CmdArr[1]), CmdArr[2]);
+            break;
         case "ulist":
             {
                 UserInfo[] ulist = App.userMgr.GetUserInfo();
@@ -99,4 +108,9 @@ void OnUserLeave(long UID)
 void OnChatMsg(string str1, string str2)
 {
     Console.WriteLine($"[Chat]{str1}:{str2}");
+}
+
+void OnP2PChatMsg(long uid, string str2)
+{
+    Console.WriteLine($"[P2PChatMsg]{uid}:{str2}");
 }
