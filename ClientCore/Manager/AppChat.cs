@@ -18,7 +18,7 @@ namespace ClientCore.Manager
             {
                 ChatMsg = ChatMsg,
             };
-            App.networkHelper.SendToServer((int)CommandID.CmdChatmsg, ProtoBufHelper.Serizlize(msg));
+            App.networkMain.SendToServer((int)CommandID.CmdChatmsg, ProtoBufHelper.Serizlize(msg));
         }
 
         public void RecvChatMsg(byte[] reqData)

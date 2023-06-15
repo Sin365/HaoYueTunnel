@@ -1,5 +1,6 @@
 ﻿using AxibugProtobuf;
 using ServerCore.Common;
+using ServerCore.Common.Enum;
 using ServerCore.Event;
 using ServerCore.NetWork;
 using System.Collections.Generic;
@@ -22,15 +23,29 @@ namespace ServerCore.Manager
 
     public class TcpTunnelClientManager
     {
+        private System.Timers.Timer _ClientCheckTimer;
+        private long _RemoveOfflineCacheMin;
         public TcpTunnelClientManager()
         {
+            //消息注册
             NetMsg.Instance.RegNetMsgEvent((int)CommandID.CmdTcptunnelHello, TcpTunnelHello);
             NetMsg.Instance.RegNetMsgEvent((int)CommandID.CmdTcptunnelDo, TcptunnelDo);
+            //事件注册
+            EventSystem.Instance.RegisterEvent<ServerType, Socket>(EEvent.OnSocketDisconnect, OnSocketDisconnect);
         }
 
         private Dictionary<long, TCPTunnelClientInfo> _DictUID2Client = new Dictionary<long, TCPTunnelClientInfo>();
         private Dictionary<Socket, TCPTunnelClientInfo> _DictScoket2Client = new Dictionary<Socket, TCPTunnelClientInfo>();
 
+        #region 事件
+        void OnSocketDisconnect(ServerType serverType, Socket socket)
+        {
+            if (serverType != ServerType.TcpTunnelServer)
+                return;
+
+            RemoveClientBySocket(socket);
+        }
+        #endregion
         void AddClient(long UID,Socket _socket)
         {
             IPEndPoint ipEndPoint = (IPEndPoint)_socket.RemoteEndPoint;
@@ -44,6 +59,7 @@ namespace ServerCore.Manager
                     _Socket = _socket
                 };
                 _DictScoket2Client[_socket] = cinfo;
+                _DictUID2Client[UID] = cinfo;
             }
             else
             {
@@ -69,8 +85,7 @@ namespace ServerCore.Manager
         {
             if (_DictScoket2Client.ContainsKey(_socket))
             {
-                _DictUID2Client.Remove(_DictScoket2Client[_socket].UID);
-                _DictScoket2Client.Remove(_socket);
+                RemoveClient(_DictScoket2Client[_socket].UID);
             }
         }
 
@@ -98,13 +113,15 @@ namespace ServerCore.Manager
             ServerManager.g_Log.Debug("收到TcpTunnel 打洞端口Hello");
             Protobuf_TcpTunnel_DoTunnel msg = ProtoBufHelper.DeSerizlize<Protobuf_TcpTunnel_DoTunnel>(reqData);
             TCPTunnelClientInfo Other = GetClient(msg.TargetUID);
-            if (Other == null)
+
+            if (Other == null || msg.UID == msg.TargetUID)
             {
                 Protobuf_TcpTunnel_DoTunnel_RESP respToErr = new Protobuf_TcpTunnel_DoTunnel_RESP();
-                ClientSend(msg.UID, (int)CommandID.CmdTcptunnelDo, (int)ErrorCode.ErrorNotfand, ProtoBufHelper.Serizlize(respToErr));
+                ClientSend(msg.UID, (int)CommandID.CmdTcptunnelDo, (int)ErrorCode.ErrorNotfind, ProtoBufHelper.Serizlize(respToErr));
                 return;
             }
 
+            //发给自己
             TCPTunnelClientInfo mine = GetClient(msg.UID);
             Protobuf_TcpTunnel_DoTunnel_RESP respToMine = new Protobuf_TcpTunnel_DoTunnel_RESP()
             {
@@ -114,9 +131,9 @@ namespace ServerCore.Manager
                 OtherPort= Other.Port,
                 TargetUID = msg.TargetUID,
             };
-            ClientSend(msg.UID, (int)CommandID.CmdTcptunnelHello, (int)ErrorCode.ErrorOk, ProtoBufHelper.Serizlize(respToMine));
+            ClientSend(msg.UID, (int)CommandID.CmdTcptunnelDo, (int)ErrorCode.ErrorOk, ProtoBufHelper.Serizlize(respToMine));
 
-
+            //发给对方
             Protobuf_TcpTunnel_DoTunnel_RESP respToOther = new Protobuf_TcpTunnel_DoTunnel_RESP()
             {
                 MyIP = Other.IP,
@@ -125,11 +142,18 @@ namespace ServerCore.Manager
                 OtherPort = mine.Port,
                 TargetUID = msg.UID,
             };
-            ClientSend(msg.TargetUID, (int)CommandID.CmdTcptunnelHello, (int)ErrorCode.ErrorOk, ProtoBufHelper.Serizlize(respToOther));
+            ClientSend(msg.TargetUID, (int)CommandID.CmdTcptunnelDo, (int)ErrorCode.ErrorOk, ProtoBufHelper.Serizlize(respToOther));
+
+            //TODO 暂时服务器不断开，交由客户端收到后主动断开
+
+            //断开两边
+            //mine._Socket.Close();
+            //TCPTunnelClientInfo other = GetClient(msg.TargetUID);
+            //other._Socket.Close();
         }
 
         /// <summary>
-        /// 错误
+        /// 
         /// </summary>
         /// <param name="UID"></param>
         /// <param name="CMDID"></param>
@@ -141,6 +165,11 @@ namespace ServerCore.Manager
             {
                 ServerManager.g_SocketTcpTunnelMgr.SendToSocket(_DictUID2Client[UID]._Socket, CMDID, ERRCODE, data);
             }
+        }
+
+        public int GetOnlineClientCount()
+        {
+            return _DictUID2Client.Count();
         }
     }
 }

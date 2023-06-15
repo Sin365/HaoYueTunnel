@@ -1,4 +1,6 @@
 ﻿using AxibugProtobuf;
+using ClientCore.Enum;
+using ClientCore.Event;
 using HaoYueNet.ClientNetwork;
 using System;
 using System.Collections.Generic;
@@ -13,7 +15,9 @@ namespace ClientCore.Network
     /// </summary>
     public class NetworkHelper : NetworkHelperCore
     {
-        public NetworkHelper()
+        ServerType mServerType;
+        public long mUID { get; private set; } = -1;
+        public NetworkHelper(ServerType serverType,long UID = -1)
         {
             //指定接收服务器数据事件
             OnDataCallBack += GetDataCallBack;
@@ -22,15 +26,21 @@ namespace ClientCore.Network
             //网络库调试信息输出事件，用于打印连接断开，收发事件
             OnLogOut += NetworkDeBugLog;
             OnConnected += NetworkConnected;
+            mServerType = serverType;
+            mUID = UID;
         }
 
 
         public void NetworkConnected(bool IsConnect)
         {
             if (IsConnect)
+            {
+                EventSystem.Instance.PostEvent(EEvent.OnSocketConnect, mServerType, true);
                 NetworkDeBugLog("服务器连接成功");
+            }
             else
             {
+                EventSystem.Instance.PostEvent(EEvent.OnSocketConnect, mServerType, false);
                 NetworkDeBugLog("服务器连接失败");
                 //to do 重连逻辑
             }
@@ -71,6 +81,7 @@ namespace ClientCore.Network
         public void OnConnectClose()
         {
             NetworkDeBugLog("OnConnectClose");
+            EventSystem.Instance.PostEvent(EEvent.OnSocketDisconnect, mServerType, mUID);
         }
     }
 }

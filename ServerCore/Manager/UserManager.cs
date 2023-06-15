@@ -9,9 +9,9 @@ using System.Timers;
 
 namespace ServerCore.Manager
 {
-    public class P2PUserManager
+    public class UserManager
     {
-        public P2PUserManager()
+        public UserManager()
         {
             NetMsg.Instance.RegNetMsgEvent((int)CommandID.CmdUserOnlinelist, RecvGetUserList);
 
@@ -21,7 +21,7 @@ namespace ServerCore.Manager
         }
 
 
-        #region
+        #region 事件
         void OnUserJoin(long UID)
         {
             ServerManager.g_Log.Debug($"P2PUserManager->OnUserJoin UID->{UID}");

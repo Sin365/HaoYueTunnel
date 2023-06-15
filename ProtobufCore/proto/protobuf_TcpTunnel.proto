@@ -30,3 +30,13 @@ message Protobuf_TcpTunnel_DoTunnel_RESP
 	string otherIP = 4;//对方的IP
 	int32 otherPort = 5;//对方的Port
 }
+
+
+////////////////////////////TCP P2P聊天//////////////////
+
+//TCPP2P聊天
+message Protobuf_TcpP2P_Chat
+{
+	string ChatMsg = 1;//消息
+}
+

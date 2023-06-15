@@ -65,18 +65,19 @@ namespace ServerCore.NetWork
         public void PostNetMsgEvent(int cmd, Socket arg1, byte[] arg2)
         {
             List<Delegate> eventList = GetNetEventDicList(cmd);
-            if (eventList != null)
+            if (eventList == null)
+                return;
+
+            for (int i = 0; i < eventList.Count; i++)
             {
-                foreach (Delegate callback in eventList)
+                Delegate callback = eventList[i];
+                try
                 {
-                    try
-                    {
-                        ((Action<Socket, byte[]>)callback)(arg1, arg2);
-                    }
-                    catch (Exception e)
-                    {
-                        ServerManager.g_Log.Error(e.Message);
-                    }
+                    ((Action<Socket, byte[]>)callback)(arg1, arg2);
+                }
+                catch (Exception e)
+                {
+                    ServerManager.g_Log.Error(e.Message);
                 }
             }
         }

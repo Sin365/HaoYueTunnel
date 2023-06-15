@@ -30,15 +30,17 @@ namespace AxibugProtobuf {
             "Zl9UY3BUdW5uZWxfRG9UdW5uZWwSCwoDVUlEGAEgASgDEhEKCXRhcmdldFVJ",
             "RBgCIAEoAyJ3CiBQcm90b2J1Zl9UY3BUdW5uZWxfRG9UdW5uZWxfUkVTUBIR",
             "Cgl0YXJnZXRVSUQYASABKAMSDAoEbXlJUBgCIAEoCRIOCgZteVBvcnQYAyAB",
-            "KAUSDwoHb3RoZXJJUBgEIAEoCRIRCglvdGhlclBvcnQYBSABKAVCAkgBYgZw",
-            "cm90bzM="));
+            "KAUSDwoHb3RoZXJJUBgEIAEoCRIRCglvdGhlclBvcnQYBSABKAUiJwoUUHJv",
+            "dG9idWZfVGNwUDJQX0NoYXQSDwoHQ2hhdE1zZxgBIAEoCUICSAFiBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::AxibugProtobuf.Protobuf_TcpTunnel_HellToSev), global::AxibugProtobuf.Protobuf_TcpTunnel_HellToSev.Parser, new[]{ "UID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AxibugProtobuf.Protobuf_TcpTunnel_HellToSev_RESP), global::AxibugProtobuf.Protobuf_TcpTunnel_HellToSev_RESP.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AxibugProtobuf.Protobuf_TcpTunnel_DoTunnel), global::AxibugProtobuf.Protobuf_TcpTunnel_DoTunnel.Parser, new[]{ "UID", "TargetUID" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::AxibugProtobuf.Protobuf_TcpTunnel_DoTunnel_RESP), global::AxibugProtobuf.Protobuf_TcpTunnel_DoTunnel_RESP.Parser, new[]{ "TargetUID", "MyIP", "MyPort", "OtherIP", "OtherPort" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::AxibugProtobuf.Protobuf_TcpTunnel_DoTunnel_RESP), global::AxibugProtobuf.Protobuf_TcpTunnel_DoTunnel_RESP.Parser, new[]{ "TargetUID", "MyIP", "MyPort", "OtherIP", "OtherPort" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::AxibugProtobuf.Protobuf_TcpP2P_Chat), global::AxibugProtobuf.Protobuf_TcpP2P_Chat.Parser, new[]{ "ChatMsg" }, null, null, null, null)
           }));
     }
     #endregion
@@ -904,6 +906,184 @@ namespace AxibugProtobuf {
           }
           case 40: {
             OtherPort = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  ///TCPP2P聊天
+  /// </summary>
+  public sealed partial class Protobuf_TcpP2P_Chat : pb::IMessage<Protobuf_TcpP2P_Chat>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<Protobuf_TcpP2P_Chat> _parser = new pb::MessageParser<Protobuf_TcpP2P_Chat>(() => new Protobuf_TcpP2P_Chat());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Protobuf_TcpP2P_Chat> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::AxibugProtobuf.ProtobufTcpTunnelReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Protobuf_TcpP2P_Chat() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Protobuf_TcpP2P_Chat(Protobuf_TcpP2P_Chat other) : this() {
+      chatMsg_ = other.chatMsg_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Protobuf_TcpP2P_Chat Clone() {
+      return new Protobuf_TcpP2P_Chat(this);
+    }
+
+    /// <summary>Field number for the "ChatMsg" field.</summary>
+    public const int ChatMsgFieldNumber = 1;
+    private string chatMsg_ = "";
+    /// <summary>
+    ///消息
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ChatMsg {
+      get { return chatMsg_; }
+      set {
+        chatMsg_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Protobuf_TcpP2P_Chat);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Protobuf_TcpP2P_Chat other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ChatMsg != other.ChatMsg) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ChatMsg.Length != 0) hash ^= ChatMsg.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (ChatMsg.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(ChatMsg);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ChatMsg.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(ChatMsg);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ChatMsg.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ChatMsg);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Protobuf_TcpP2P_Chat other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ChatMsg.Length != 0) {
+        ChatMsg = other.ChatMsg;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            ChatMsg = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            ChatMsg = input.ReadString();
             break;
           }
         }
