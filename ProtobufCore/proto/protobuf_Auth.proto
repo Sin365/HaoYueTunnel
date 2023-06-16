@@ -19,6 +19,12 @@ enum CommandID
 	CMD_TCPTUNNEL_DO = 5002; //TCP打洞请求 下行 对应 Protobuf_TcpTunnel_DoTunnel | Protobuf_TcpTunnel_DoTunnel_RESP
 	
 	CMD_TCP_P2P_CHAT = 10001; //TCPP2P聊天 Protobuf_TcpP2P_Chat
+	
+	//TCPP2P 文件传输上下行分开
+	CMD_TCP_P2P_FILEPUSH_CONFIRM = 11001; //TCPP2文件传输 上行 对应 Protobuf_TcpP2P_FilePushConfirm
+	CMD_TCP_P2P_FILEPUSH_CONFIRM_RESP = 11002; //TCPP2文件传输 下行 对应 Protobuf_TcpP2P_FilePushConfirm_RESP
+	CMD_TCP_P2P_FILEPUSH = 11003; //TCPP2文件传输 过程 上行 对应 Protobuf_TcpP2P_FilePush
+	CMD_TCP_P2P_FILEPUSH_RESP = 11004; //TCPP2文件传输 过程 下行 对应 Protobuf_TcpP2P_FilePush_RESP
 }
 
 enum ErrorCode

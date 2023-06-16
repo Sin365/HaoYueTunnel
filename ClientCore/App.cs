@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace ClientCore
         public static ClientManager clientMgr;
         public static P2PTcp p2ptcp;
         public static P2PChat p2pChat;
+        public static P2PFile p2pFile;
         public static NetworkHelper networkMain;
         public static NetworkHelper networkTcp2S;
         public static AppLogin login;
@@ -34,6 +36,7 @@ namespace ClientCore
             clientMgr.SetIpData(IP, port, tcptunnelport);
             p2ptcp = new P2PTcp();
             p2pChat = new P2PChat();
+            p2pFile = new P2PFile();
             networkMain = new NetworkHelper(Enum.ServerType.MainServer);
             networkMain.Init(IP, port);
             //networkTcp2S = new NetworkHelper(Enum.ServerType.TcpTunnelServer);

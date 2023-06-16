@@ -34,18 +34,21 @@ namespace AxibugProtobuf {
             "EgsKA1VJRBgFIAEoAxIQCghOaWNrTmFtZRgGIAEoCSIjChBQcm90b2J1Zl9D",
             "aGF0TXNnEg8KB0NoYXRNc2cYASABKAkiSAoVUHJvdG9idWZfQ2hhdE1zZ19S",
             "RVNQEhAKCE5pY2tOYW1lGAEgASgJEg8KB0NoYXRNc2cYAiABKAkSDAoERGF0",
-            "ZRgDIAEoAyrkAQoJQ29tbWFuZElEEg4KCkNNRF9ERUZBVUwQABIOCglDTURf",
+            "ZRgDIAEoAyrqAgoJQ29tbWFuZElEEg4KCkNNRF9ERUZBVUwQABIOCglDTURf",
             "TE9HSU4Q0A8SEAoLQ01EX0NIQVRNU0cQoB8SGAoTQ01EX1VTRVJfT05MSU5F",
             "TElTVBCIJxISCg1DTURfVVNFUl9KT0lOEKcnEhMKDkNNRF9VU0VSX0xFQVZF",
             "EKgnEhoKFUNNRF9VU0VSX1NUQVRFX1VQREFURRCpJxIYChNDTURfVENQVFVO",
             "TkVMX0hFTExPEIknEhUKEENNRF9UQ1BUVU5ORUxfRE8QiicSFQoQQ01EX1RD",
-            "UF9QMlBfQ0hBVBCRTio+CglFcnJvckNvZGUSEAoMRVJST1JfREVGQVVMEAAS",
-            "DAoIRVJST1JfT0sQARIRCg1FUlJPUl9OT1RGSU5EEGQqPgoJTG9naW5UeXBl",
-            "Eg8KC0Jhc2VEZWZhdWx0EAASDgoKSGFvWXVlQXV0aBABEgcKA0JGMxADEgcK",
-            "A0JGNBAEKksKCkRldmljZVR5cGUSFgoSRGV2aWNlVHlwZV9EZWZhdWx0EAAS",
-            "BgoCUEMQARILCgdBbmRyb2lkEAISBwoDSU9TEAMSBwoDUFNWEAQqTgoRTG9n",
-            "aW5SZXN1bHRTdGF0dXMSIQodTG9naW5SZXN1bHRTdGF0dXNfQmFzZURlZmF1",
-            "bHQQABIGCgJPSxABEg4KCkFjY291bnRFcnIQAkICSAFiBnByb3RvMw=="));
+            "UF9QMlBfQ0hBVBCRThIhChxDTURfVENQX1AyUF9GSUxFUFVTSF9DT05GSVJN",
+            "EPlVEiYKIUNNRF9UQ1BfUDJQX0ZJTEVQVVNIX0NPTkZJUk1fUkVTUBD6VRIZ",
+            "ChRDTURfVENQX1AyUF9GSUxFUFVTSBD7VRIeChlDTURfVENQX1AyUF9GSUxF",
+            "UFVTSF9SRVNQEPxVKj4KCUVycm9yQ29kZRIQCgxFUlJPUl9ERUZBVUwQABIM",
+            "CghFUlJPUl9PSxABEhEKDUVSUk9SX05PVEZJTkQQZCo+CglMb2dpblR5cGUS",
+            "DwoLQmFzZURlZmF1bHQQABIOCgpIYW9ZdWVBdXRoEAESBwoDQkYzEAMSBwoD",
+            "QkY0EAQqSwoKRGV2aWNlVHlwZRIWChJEZXZpY2VUeXBlX0RlZmF1bHQQABIG",
+            "CgJQQxABEgsKB0FuZHJvaWQQAhIHCgNJT1MQAxIHCgNQU1YQBCpOChFMb2dp",
+            "blJlc3VsdFN0YXR1cxIhCh1Mb2dpblJlc3VsdFN0YXR1c19CYXNlRGVmYXVs",
+            "dBAAEgYKAk9LEAESDgoKQWNjb3VudEVychACQgJIAWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::AxibugProtobuf.CommandID), typeof(global::AxibugProtobuf.ErrorCode), typeof(global::AxibugProtobuf.LoginType), typeof(global::AxibugProtobuf.DeviceType), typeof(global::AxibugProtobuf.LoginResultStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -100,6 +103,22 @@ namespace AxibugProtobuf {
     ///TCPP2P聊天 Protobuf_TcpP2P_Chat
     /// </summary>
     [pbr::OriginalName("CMD_TCP_P2P_CHAT")] CmdTcpP2PChat = 10001,
+    /// <summary>
+    ///TCPP2P 文件传输上下行分开
+    /// </summary>
+    [pbr::OriginalName("CMD_TCP_P2P_FILEPUSH_CONFIRM")] CmdTcpP2PFilepushConfirm = 11001,
+    /// <summary>
+    ///TCPP2文件传输 下行 对应 Protobuf_TcpP2P_FilePushConfirm_RESP
+    /// </summary>
+    [pbr::OriginalName("CMD_TCP_P2P_FILEPUSH_CONFIRM_RESP")] CmdTcpP2PFilepushConfirmResp = 11002,
+    /// <summary>
+    ///TCPP2文件传输 过程 上行 对应 Protobuf_TcpP2P_FilePush
+    /// </summary>
+    [pbr::OriginalName("CMD_TCP_P2P_FILEPUSH")] CmdTcpP2PFilepush = 11003,
+    /// <summary>
+    ///TCPP2文件传输 过程 下行 对应 Protobuf_TcpP2P_FilePush_RESP
+    /// </summary>
+    [pbr::OriginalName("CMD_TCP_P2P_FILEPUSH_RESP")] CmdTcpP2PFilepushResp = 11004,
   }
 
   public enum ErrorCode {

@@ -31,8 +31,17 @@ namespace AxibugProtobuf {
             "RBgCIAEoAyJ3CiBQcm90b2J1Zl9UY3BUdW5uZWxfRG9UdW5uZWxfUkVTUBIR",
             "Cgl0YXJnZXRVSUQYASABKAMSDAoEbXlJUBgCIAEoCRIOCgZteVBvcnQYAyAB",
             "KAUSDwoHb3RoZXJJUBgEIAEoCRIRCglvdGhlclBvcnQYBSABKAUiJwoUUHJv",
-            "dG9idWZfVGNwUDJQX0NoYXQSDwoHQ2hhdE1zZxgBIAEoCUICSAFiBnByb3Rv",
-            "Mw=="));
+            "dG9idWZfVGNwUDJQX0NoYXQSDwoHQ2hhdE1zZxgBIAEoCSKjAQofUHJvdG9i",
+            "dWZfVGNwUDJQX0ZpbGVQdXNoQ29uZmlybRISCgpGaWxlTGVuZ2h0GAEgASgD",
+            "EhMKC0NvbnRlbnRUeXBlGAIgASgJEhAKCEZpbGVOYW1lGAMgASgJEg4KBlRh",
+            "c2tJRBgEIAEoBRIQCghQYWNrU2l6ZRgFIAEoBRIRCglQYWNrQ291bnQYBiAB",
+            "KAMSEAoIRmlsZUhhc2gYByABKAkiRQokUHJvdG9idWZfVGNwUDJQX0ZpbGVQ",
+            "dXNoQ29uZmlybV9SRVNQEg4KBlRhc2tJRBgBIAEoBRINCgVBZ3JlZRgCIAEo",
+            "BSJkChhQcm90b2J1Zl9UY3BQMlBfRmlsZVB1c2gSDgoGVGFza0lEGAEgASgF",
+            "EhEKCVBhY2tJbmRleBgCIAEoAxIRCglGaWxlX0RhdGEYAyABKAwSEgoKUGFj",
+            "a0xlbmdodBgEIAEoBSJECh1Qcm90b2J1Zl9UY3BQMlBfRmlsZVB1c2hfUkVT",
+            "UBIOCgZUYXNrSUQYASABKAUSEwoLRmluaXNoSW5kZXgYAiABKANCAkgBYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -40,7 +49,11 @@ namespace AxibugProtobuf {
             new pbr::GeneratedClrTypeInfo(typeof(global::AxibugProtobuf.Protobuf_TcpTunnel_HellToSev_RESP), global::AxibugProtobuf.Protobuf_TcpTunnel_HellToSev_RESP.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AxibugProtobuf.Protobuf_TcpTunnel_DoTunnel), global::AxibugProtobuf.Protobuf_TcpTunnel_DoTunnel.Parser, new[]{ "UID", "TargetUID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AxibugProtobuf.Protobuf_TcpTunnel_DoTunnel_RESP), global::AxibugProtobuf.Protobuf_TcpTunnel_DoTunnel_RESP.Parser, new[]{ "TargetUID", "MyIP", "MyPort", "OtherIP", "OtherPort" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::AxibugProtobuf.Protobuf_TcpP2P_Chat), global::AxibugProtobuf.Protobuf_TcpP2P_Chat.Parser, new[]{ "ChatMsg" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::AxibugProtobuf.Protobuf_TcpP2P_Chat), global::AxibugProtobuf.Protobuf_TcpP2P_Chat.Parser, new[]{ "ChatMsg" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::AxibugProtobuf.Protobuf_TcpP2P_FilePushConfirm), global::AxibugProtobuf.Protobuf_TcpP2P_FilePushConfirm.Parser, new[]{ "FileLenght", "ContentType", "FileName", "TaskID", "PackSize", "PackCount", "FileHash" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::AxibugProtobuf.Protobuf_TcpP2P_FilePushConfirm_RESP), global::AxibugProtobuf.Protobuf_TcpP2P_FilePushConfirm_RESP.Parser, new[]{ "TaskID", "Agree" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::AxibugProtobuf.Protobuf_TcpP2P_FilePush), global::AxibugProtobuf.Protobuf_TcpP2P_FilePush.Parser, new[]{ "TaskID", "PackIndex", "FileData", "PackLenght" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::AxibugProtobuf.Protobuf_TcpP2P_FilePush_RESP), global::AxibugProtobuf.Protobuf_TcpP2P_FilePush_RESP.Parser, new[]{ "TaskID", "FinishIndex" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1084,6 +1097,1141 @@ namespace AxibugProtobuf {
             break;
           case 10: {
             ChatMsg = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  ///TCPP2P文件传输 确认
+  /// </summary>
+  public sealed partial class Protobuf_TcpP2P_FilePushConfirm : pb::IMessage<Protobuf_TcpP2P_FilePushConfirm>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<Protobuf_TcpP2P_FilePushConfirm> _parser = new pb::MessageParser<Protobuf_TcpP2P_FilePushConfirm>(() => new Protobuf_TcpP2P_FilePushConfirm());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Protobuf_TcpP2P_FilePushConfirm> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::AxibugProtobuf.ProtobufTcpTunnelReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Protobuf_TcpP2P_FilePushConfirm() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Protobuf_TcpP2P_FilePushConfirm(Protobuf_TcpP2P_FilePushConfirm other) : this() {
+      fileLenght_ = other.fileLenght_;
+      contentType_ = other.contentType_;
+      fileName_ = other.fileName_;
+      taskID_ = other.taskID_;
+      packSize_ = other.packSize_;
+      packCount_ = other.packCount_;
+      fileHash_ = other.fileHash_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Protobuf_TcpP2P_FilePushConfirm Clone() {
+      return new Protobuf_TcpP2P_FilePushConfirm(this);
+    }
+
+    /// <summary>Field number for the "FileLenght" field.</summary>
+    public const int FileLenghtFieldNumber = 1;
+    private long fileLenght_;
+    /// <summary>
+    ///文件长度
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long FileLenght {
+      get { return fileLenght_; }
+      set {
+        fileLenght_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ContentType" field.</summary>
+    public const int ContentTypeFieldNumber = 2;
+    private string contentType_ = "";
+    /// <summary>
+    ///ContentType
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ContentType {
+      get { return contentType_; }
+      set {
+        contentType_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "FileName" field.</summary>
+    public const int FileNameFieldNumber = 3;
+    private string fileName_ = "";
+    /// <summary>
+    ///文件名
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string FileName {
+      get { return fileName_; }
+      set {
+        fileName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "TaskID" field.</summary>
+    public const int TaskIDFieldNumber = 4;
+    private int taskID_;
+    /// <summary>
+    ///传输任务ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int TaskID {
+      get { return taskID_; }
+      set {
+        taskID_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "PackSize" field.</summary>
+    public const int PackSizeFieldNumber = 5;
+    private int packSize_;
+    /// <summary>
+    ///每个包大小
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int PackSize {
+      get { return packSize_; }
+      set {
+        packSize_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "PackCount" field.</summary>
+    public const int PackCountFieldNumber = 6;
+    private long packCount_;
+    /// <summary>
+    ///包数量
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long PackCount {
+      get { return packCount_; }
+      set {
+        packCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "FileHash" field.</summary>
+    public const int FileHashFieldNumber = 7;
+    private string fileHash_ = "";
+    /// <summary>
+    ///文件hash
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string FileHash {
+      get { return fileHash_; }
+      set {
+        fileHash_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Protobuf_TcpP2P_FilePushConfirm);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Protobuf_TcpP2P_FilePushConfirm other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (FileLenght != other.FileLenght) return false;
+      if (ContentType != other.ContentType) return false;
+      if (FileName != other.FileName) return false;
+      if (TaskID != other.TaskID) return false;
+      if (PackSize != other.PackSize) return false;
+      if (PackCount != other.PackCount) return false;
+      if (FileHash != other.FileHash) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (FileLenght != 0L) hash ^= FileLenght.GetHashCode();
+      if (ContentType.Length != 0) hash ^= ContentType.GetHashCode();
+      if (FileName.Length != 0) hash ^= FileName.GetHashCode();
+      if (TaskID != 0) hash ^= TaskID.GetHashCode();
+      if (PackSize != 0) hash ^= PackSize.GetHashCode();
+      if (PackCount != 0L) hash ^= PackCount.GetHashCode();
+      if (FileHash.Length != 0) hash ^= FileHash.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (FileLenght != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(FileLenght);
+      }
+      if (ContentType.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(ContentType);
+      }
+      if (FileName.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(FileName);
+      }
+      if (TaskID != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(TaskID);
+      }
+      if (PackSize != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(PackSize);
+      }
+      if (PackCount != 0L) {
+        output.WriteRawTag(48);
+        output.WriteInt64(PackCount);
+      }
+      if (FileHash.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(FileHash);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (FileLenght != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(FileLenght);
+      }
+      if (ContentType.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(ContentType);
+      }
+      if (FileName.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(FileName);
+      }
+      if (TaskID != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(TaskID);
+      }
+      if (PackSize != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(PackSize);
+      }
+      if (PackCount != 0L) {
+        output.WriteRawTag(48);
+        output.WriteInt64(PackCount);
+      }
+      if (FileHash.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(FileHash);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (FileLenght != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(FileLenght);
+      }
+      if (ContentType.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ContentType);
+      }
+      if (FileName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(FileName);
+      }
+      if (TaskID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(TaskID);
+      }
+      if (PackSize != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PackSize);
+      }
+      if (PackCount != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(PackCount);
+      }
+      if (FileHash.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(FileHash);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Protobuf_TcpP2P_FilePushConfirm other) {
+      if (other == null) {
+        return;
+      }
+      if (other.FileLenght != 0L) {
+        FileLenght = other.FileLenght;
+      }
+      if (other.ContentType.Length != 0) {
+        ContentType = other.ContentType;
+      }
+      if (other.FileName.Length != 0) {
+        FileName = other.FileName;
+      }
+      if (other.TaskID != 0) {
+        TaskID = other.TaskID;
+      }
+      if (other.PackSize != 0) {
+        PackSize = other.PackSize;
+      }
+      if (other.PackCount != 0L) {
+        PackCount = other.PackCount;
+      }
+      if (other.FileHash.Length != 0) {
+        FileHash = other.FileHash;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            FileLenght = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            ContentType = input.ReadString();
+            break;
+          }
+          case 26: {
+            FileName = input.ReadString();
+            break;
+          }
+          case 32: {
+            TaskID = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            PackSize = input.ReadInt32();
+            break;
+          }
+          case 48: {
+            PackCount = input.ReadInt64();
+            break;
+          }
+          case 58: {
+            FileHash = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            FileLenght = input.ReadInt64();
+            break;
+          }
+          case 18: {
+            ContentType = input.ReadString();
+            break;
+          }
+          case 26: {
+            FileName = input.ReadString();
+            break;
+          }
+          case 32: {
+            TaskID = input.ReadInt32();
+            break;
+          }
+          case 40: {
+            PackSize = input.ReadInt32();
+            break;
+          }
+          case 48: {
+            PackCount = input.ReadInt64();
+            break;
+          }
+          case 58: {
+            FileHash = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class Protobuf_TcpP2P_FilePushConfirm_RESP : pb::IMessage<Protobuf_TcpP2P_FilePushConfirm_RESP>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<Protobuf_TcpP2P_FilePushConfirm_RESP> _parser = new pb::MessageParser<Protobuf_TcpP2P_FilePushConfirm_RESP>(() => new Protobuf_TcpP2P_FilePushConfirm_RESP());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Protobuf_TcpP2P_FilePushConfirm_RESP> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::AxibugProtobuf.ProtobufTcpTunnelReflection.Descriptor.MessageTypes[6]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Protobuf_TcpP2P_FilePushConfirm_RESP() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Protobuf_TcpP2P_FilePushConfirm_RESP(Protobuf_TcpP2P_FilePushConfirm_RESP other) : this() {
+      taskID_ = other.taskID_;
+      agree_ = other.agree_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Protobuf_TcpP2P_FilePushConfirm_RESP Clone() {
+      return new Protobuf_TcpP2P_FilePushConfirm_RESP(this);
+    }
+
+    /// <summary>Field number for the "TaskID" field.</summary>
+    public const int TaskIDFieldNumber = 1;
+    private int taskID_;
+    /// <summary>
+    ///传输任务ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int TaskID {
+      get { return taskID_; }
+      set {
+        taskID_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Agree" field.</summary>
+    public const int AgreeFieldNumber = 2;
+    private int agree_;
+    /// <summary>
+    ///[0]拒绝 [1]同意
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Agree {
+      get { return agree_; }
+      set {
+        agree_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Protobuf_TcpP2P_FilePushConfirm_RESP);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Protobuf_TcpP2P_FilePushConfirm_RESP other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (TaskID != other.TaskID) return false;
+      if (Agree != other.Agree) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (TaskID != 0) hash ^= TaskID.GetHashCode();
+      if (Agree != 0) hash ^= Agree.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (TaskID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(TaskID);
+      }
+      if (Agree != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Agree);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (TaskID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(TaskID);
+      }
+      if (Agree != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Agree);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (TaskID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(TaskID);
+      }
+      if (Agree != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Agree);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Protobuf_TcpP2P_FilePushConfirm_RESP other) {
+      if (other == null) {
+        return;
+      }
+      if (other.TaskID != 0) {
+        TaskID = other.TaskID;
+      }
+      if (other.Agree != 0) {
+        Agree = other.Agree;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            TaskID = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            Agree = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            TaskID = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            Agree = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  ///TCPP2P文件传输 过程
+  /// </summary>
+  public sealed partial class Protobuf_TcpP2P_FilePush : pb::IMessage<Protobuf_TcpP2P_FilePush>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<Protobuf_TcpP2P_FilePush> _parser = new pb::MessageParser<Protobuf_TcpP2P_FilePush>(() => new Protobuf_TcpP2P_FilePush());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Protobuf_TcpP2P_FilePush> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::AxibugProtobuf.ProtobufTcpTunnelReflection.Descriptor.MessageTypes[7]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Protobuf_TcpP2P_FilePush() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Protobuf_TcpP2P_FilePush(Protobuf_TcpP2P_FilePush other) : this() {
+      taskID_ = other.taskID_;
+      packIndex_ = other.packIndex_;
+      fileData_ = other.fileData_;
+      packLenght_ = other.packLenght_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Protobuf_TcpP2P_FilePush Clone() {
+      return new Protobuf_TcpP2P_FilePush(this);
+    }
+
+    /// <summary>Field number for the "TaskID" field.</summary>
+    public const int TaskIDFieldNumber = 1;
+    private int taskID_;
+    /// <summary>
+    ///传输任务ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int TaskID {
+      get { return taskID_; }
+      set {
+        taskID_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "PackIndex" field.</summary>
+    public const int PackIndexFieldNumber = 2;
+    private long packIndex_;
+    /// <summary>
+    ///文件片
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long PackIndex {
+      get { return packIndex_; }
+      set {
+        packIndex_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "File_Data" field.</summary>
+    public const int FileDataFieldNumber = 3;
+    private pb::ByteString fileData_ = pb::ByteString.Empty;
+    /// <summary>
+    ///文件数量
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString FileData {
+      get { return fileData_; }
+      set {
+        fileData_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "PackLenght" field.</summary>
+    public const int PackLenghtFieldNumber = 4;
+    private int packLenght_;
+    /// <summary>
+    ///数据长度
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int PackLenght {
+      get { return packLenght_; }
+      set {
+        packLenght_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Protobuf_TcpP2P_FilePush);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Protobuf_TcpP2P_FilePush other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (TaskID != other.TaskID) return false;
+      if (PackIndex != other.PackIndex) return false;
+      if (FileData != other.FileData) return false;
+      if (PackLenght != other.PackLenght) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (TaskID != 0) hash ^= TaskID.GetHashCode();
+      if (PackIndex != 0L) hash ^= PackIndex.GetHashCode();
+      if (FileData.Length != 0) hash ^= FileData.GetHashCode();
+      if (PackLenght != 0) hash ^= PackLenght.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (TaskID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(TaskID);
+      }
+      if (PackIndex != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(PackIndex);
+      }
+      if (FileData.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(FileData);
+      }
+      if (PackLenght != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(PackLenght);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (TaskID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(TaskID);
+      }
+      if (PackIndex != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(PackIndex);
+      }
+      if (FileData.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(FileData);
+      }
+      if (PackLenght != 0) {
+        output.WriteRawTag(32);
+        output.WriteInt32(PackLenght);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (TaskID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(TaskID);
+      }
+      if (PackIndex != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(PackIndex);
+      }
+      if (FileData.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(FileData);
+      }
+      if (PackLenght != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PackLenght);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Protobuf_TcpP2P_FilePush other) {
+      if (other == null) {
+        return;
+      }
+      if (other.TaskID != 0) {
+        TaskID = other.TaskID;
+      }
+      if (other.PackIndex != 0L) {
+        PackIndex = other.PackIndex;
+      }
+      if (other.FileData.Length != 0) {
+        FileData = other.FileData;
+      }
+      if (other.PackLenght != 0) {
+        PackLenght = other.PackLenght;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            TaskID = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            PackIndex = input.ReadInt64();
+            break;
+          }
+          case 26: {
+            FileData = input.ReadBytes();
+            break;
+          }
+          case 32: {
+            PackLenght = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            TaskID = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            PackIndex = input.ReadInt64();
+            break;
+          }
+          case 26: {
+            FileData = input.ReadBytes();
+            break;
+          }
+          case 32: {
+            PackLenght = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class Protobuf_TcpP2P_FilePush_RESP : pb::IMessage<Protobuf_TcpP2P_FilePush_RESP>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<Protobuf_TcpP2P_FilePush_RESP> _parser = new pb::MessageParser<Protobuf_TcpP2P_FilePush_RESP>(() => new Protobuf_TcpP2P_FilePush_RESP());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Protobuf_TcpP2P_FilePush_RESP> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::AxibugProtobuf.ProtobufTcpTunnelReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Protobuf_TcpP2P_FilePush_RESP() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Protobuf_TcpP2P_FilePush_RESP(Protobuf_TcpP2P_FilePush_RESP other) : this() {
+      taskID_ = other.taskID_;
+      finishIndex_ = other.finishIndex_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Protobuf_TcpP2P_FilePush_RESP Clone() {
+      return new Protobuf_TcpP2P_FilePush_RESP(this);
+    }
+
+    /// <summary>Field number for the "TaskID" field.</summary>
+    public const int TaskIDFieldNumber = 1;
+    private int taskID_;
+    /// <summary>
+    ///传输任务ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int TaskID {
+      get { return taskID_; }
+      set {
+        taskID_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "FinishIndex" field.</summary>
+    public const int FinishIndexFieldNumber = 2;
+    private long finishIndex_;
+    /// <summary>
+    ///完成包数量
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long FinishIndex {
+      get { return finishIndex_; }
+      set {
+        finishIndex_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Protobuf_TcpP2P_FilePush_RESP);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Protobuf_TcpP2P_FilePush_RESP other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (TaskID != other.TaskID) return false;
+      if (FinishIndex != other.FinishIndex) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (TaskID != 0) hash ^= TaskID.GetHashCode();
+      if (FinishIndex != 0L) hash ^= FinishIndex.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (TaskID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(TaskID);
+      }
+      if (FinishIndex != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(FinishIndex);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (TaskID != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(TaskID);
+      }
+      if (FinishIndex != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(FinishIndex);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (TaskID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(TaskID);
+      }
+      if (FinishIndex != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(FinishIndex);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Protobuf_TcpP2P_FilePush_RESP other) {
+      if (other == null) {
+        return;
+      }
+      if (other.TaskID != 0) {
+        TaskID = other.TaskID;
+      }
+      if (other.FinishIndex != 0L) {
+        FinishIndex = other.FinishIndex;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            TaskID = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            FinishIndex = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            TaskID = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            FinishIndex = input.ReadInt64();
             break;
           }
         }

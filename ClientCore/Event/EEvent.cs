@@ -21,5 +21,7 @@ namespace ClientCore.Event
         //连接管理
         OnSocketConnect,
         OnSocketDisconnect,
+
+        //文件传输
     }
 }

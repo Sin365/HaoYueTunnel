@@ -66,6 +66,15 @@ while (true)
             }
             App.p2pChat.SendChatMsg(Convert.ToInt64(CmdArr[1]), CmdArr[2]);
             break;
+        case "tufile":
+        case "tuf":
+            if (CmdArr.Length < 3)
+            {
+                Console.WriteLine("缺省参数");
+                return;
+            }
+            App.p2pFile.sender_FilePushConfirmToTarget(Convert.ToInt64(CmdArr[1]), CmdArr[2]);
+            break;
         case "ulist":
             {
                 UserInfo[] ulist = App.userMgr.GetUserInfo();

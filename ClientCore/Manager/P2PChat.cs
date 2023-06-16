@@ -17,7 +17,7 @@ namespace ClientCore.Manager
             {
                 ChatMsg = ChatMsg,
             };
-            App.clientMgr.SendToTargetSocket(UID, (int)CommandID.CmdTcpP2PChat, ProtoBufHelper.Serizlize(msg));
+            App.clientMgr.SendToTargetSocket(UID, (int)CommandID.CmdTcpP2PChat,(int)ErrorCode.ErrorOk, ProtoBufHelper.Serizlize(msg));
         }
         public void RecvChatMsg(long uid, byte[] reqData)
         {

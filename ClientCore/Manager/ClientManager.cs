@@ -3,8 +3,10 @@ using ClientCore.Common;
 using ClientCore.Enum;
 using ClientCore.Event;
 using ClientCore.Network;
+using HaoYueNet.ClientNetwork;
 using System.Net.Sockets;
 using System.Timers;
+using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 namespace ClientCore.Manager
 {
@@ -16,7 +18,7 @@ namespace ClientCore.Manager
         int tcptunnelport;
         int LastlocalPort = 0;
 
-        Dictionary<long,NetworkHelper> DictUID2TcpTaret = new Dictionary<long,NetworkHelper>();
+        Dictionary<long, NetworkP2PHelper> DictUID2TcpTaret = new Dictionary<long, NetworkP2PHelper>();
 
         public ClientManager()
         {
@@ -130,7 +132,7 @@ namespace ClientCore.Manager
 
 
         #region P2PTarget 管理
-        void AddTargetSocket(NetworkHelper targetSocket)
+        void AddTargetSocket(NetworkP2PHelper targetSocket)
         {
             DictUID2TcpTaret[targetSocket.mUID] = targetSocket;
         }
@@ -143,7 +145,7 @@ namespace ClientCore.Manager
             }
         }
 
-        NetworkHelper GetTargetSocket(long UID)
+        NetworkP2PHelper GetTargetSocket(long UID)
         {
             if (DictUID2TcpTaret.ContainsKey(UID))
             {
@@ -151,19 +153,19 @@ namespace ClientCore.Manager
             }
             return null;
         }
-        
+
         /// <summary>
         /// 发送给指定UID消息
         /// </summary>
         /// <param name="UID"></param>
         /// <param name="CMDID"></param>
         /// <param name="data"></param>
-        public void SendToTargetSocket(long UID,int CMDID,byte[] data)
+        public void SendToTargetSocket(long UID, int CMDID, int ERRCODE, byte[] data)
         {
-            NetworkHelper target = GetTargetSocket(UID);
+            NetworkP2PHelper target = GetTargetSocket(UID);
             if (target == null)
                 return;
-            target.SendToServer((int)CMDID, data);
+            target.SendToSocket((int)CMDID, ERRCODE, data);
         }
         #endregion
 
@@ -184,7 +186,7 @@ namespace ClientCore.Manager
             int userBindPort = LastlocalPort;
             Protobuf_TcpTunnel_DoTunnel_RESP msg = (Protobuf_TcpTunnel_DoTunnel_RESP)obj;
             Console.WriteLine("LocalEndPoint Port：" + userBindPort);
-            NetworkHelper targetSocket = new NetworkHelper(Enum.ServerType.TcpP2PTarget, msg.TargetUID);
+            NetworkP2PHelper targetSocket = new NetworkP2PHelper(Enum.ServerType.TcpP2PTarget, msg.TargetUID);
             targetSocket.Init(msg.OtherIP, msg.OtherPort, true, userBindPort);
             //尝试5次连接
             for (int j = 0; j < 5; j++)
