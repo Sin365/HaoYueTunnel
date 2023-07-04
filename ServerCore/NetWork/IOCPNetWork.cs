@@ -15,20 +15,7 @@ namespace ServerCore.NetWork
             : base(numConnections, receiveBufferSize)
         {
             mServerType = serverType;
-
-            m_clientCount = 0;
-            m_maxConnectNum = numConnections;
-            m_revBufferSize = receiveBufferSize;
-            // allocate buffers such that the maximum number of sockets can have one outstanding read and   
-            //write posted to the socket simultaneously    
-            m_bufferManager = new BufferManager(receiveBufferSize * numConnections * opsToAlloc, receiveBufferSize);
-
-            m_pool = new SocketEventPool(numConnections);
-            m_maxNumberAcceptedClients = new Semaphore(numConnections, numConnections);
-
-
             ClientNumberChange += IOCPNetWork_ClientNumberChange;
-
         }
 
         private void IOCPNetWork_ClientNumberChange(int num, AsyncUserToken token)
