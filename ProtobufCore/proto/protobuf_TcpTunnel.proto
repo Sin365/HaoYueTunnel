@@ -1,0 +1,77 @@
+syntax = "proto3";
+package AxibugProtobuf;
+option optimize_for = SPEED;
+
+//Tcp打洞请求
+message Protobuf_TcpTunnel_HellToSev
+{
+	int64 UID = 1;//自己的UID
+}
+
+//Tcp打洞请求 下行
+message Protobuf_TcpTunnel_HellToSev_RESP
+{
+}
+
+//Tcp打洞请求
+message Protobuf_TcpTunnel_DoTunnel
+{
+	int64 UID = 1;//自己的UID
+	int64 targetUID = 2;//目标的UID
+}
+
+
+//双方信息 下行
+message Protobuf_TcpTunnel_DoTunnel_RESP
+{
+	int64 targetUID = 1;//目标的UID
+	string myIP = 2;//自己的IP
+	int32 myPort = 3;//自己的Port
+	string otherIP = 4;//对方的IP
+	int32 otherPort = 5;//对方的Port
+}
+
+
+////////////////////////////TCP P2P聊天//////////////////
+
+//TCPP2P聊天
+message Protobuf_TcpP2P_Chat
+{
+	string ChatMsg = 1;//消息
+}
+
+
+////////////////////////////TCP P2P文件传输//////////////////
+
+//TCPP2P文件传输 确认
+message Protobuf_TcpP2P_FilePushConfirm
+{
+	int64 FileLenght = 1;//文件长度
+	string ContentType = 2;//ContentType
+	string FileName = 3;//文件名
+	int32 TaskID = 4;//传输任务ID
+	int32 PackSize = 5;//每个包大小
+	int64 PackCount = 6;//包数量
+	string FileHash = 7;//文件hash
+}
+
+message Protobuf_TcpP2P_FilePushConfirm_RESP
+{
+	int32 TaskID = 1;//传输任务ID
+	int32 Agree = 2;//[0]拒绝 [1]同意
+}
+
+//TCPP2P文件传输 过程
+message Protobuf_TcpP2P_FilePush
+{
+	int32 TaskID = 1;//传输任务ID
+	int64 PackIndex = 2;//文件片
+    bytes File_Data = 3;//文件数量
+    int32 PackLenght = 4;//数据长度
+}
+
+message Protobuf_TcpP2P_FilePush_RESP
+{
+	int32 TaskID = 1;//传输任务ID
+	int64 FinishIndex = 2;//完成包数量
+}

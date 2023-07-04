@@ -1,4 +1,5 @@
 ﻿using AxibugProtobuf;
+using ServerCore.Common.Enum;
 using ServerCore.Event;
 using System.Net.Sockets;
 using System.Timers;
@@ -26,40 +27,51 @@ namespace ServerCore.Manager
         private long _RemoveOfflineCacheMin;
 
 
+        public ClientManager()
+        {
+            //事件
+            EventSystem.Instance.RegisterEvent<ServerType,Socket>(EEvent.OnSocketDisconnect, OnSocketDisconnect);
+        }
+
         #region 事件
+        void OnSocketDisconnect(ServerType serverType, Socket socket)
+        {
+            if (serverType != ServerType.MainServer)
+                return;
 
-
+            RemoveClientBySocket(socket);
+        }
         #endregion
 
-        public void Init(long ticktime, long RemoveOfflineCacheMin)
-        {
-            //换算成毫秒
-            _RemoveOfflineCacheMin = RemoveOfflineCacheMin * 1000;
-            _ClientCheckTimer = new System.Timers.Timer();
-            _ClientCheckTimer.Interval = ticktime;
-            _ClientCheckTimer.AutoReset = true;
-            _ClientCheckTimer.Elapsed += new ElapsedEventHandler(ClientCheckClearOffline_Elapsed);
-            _ClientCheckTimer.Enabled = true;
-        }
+        //public void Init(long ticktime, long RemoveOfflineCacheMin)
+        //{
+        //    //换算成毫秒
+        //    _RemoveOfflineCacheMin = RemoveOfflineCacheMin * 1000;
+        //    _ClientCheckTimer = new System.Timers.Timer();
+        //    _ClientCheckTimer.Interval = ticktime;
+        //    _ClientCheckTimer.AutoReset = true;
+        //    _ClientCheckTimer.Elapsed += new ElapsedEventHandler(ClientCheckClearOffline_Elapsed);
+        //    _ClientCheckTimer.Enabled = true;
+        //}
 
         public long GetNextUID()
         {
             return ++TestUIDSeed;
         }
 
-        private void ClientCheckClearOffline_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            DateTime CheckDT = DateTime.Now.AddMinutes(-1 * _RemoveOfflineCacheMin);
-            ClientInfo[] OfflineClientlist = ClientList.Where(w => w.IsOffline == true && w.LogOutDT < CheckDT).ToArray();
+        //private void ClientCheckClearOffline_Elapsed(object sender, ElapsedEventArgs e)
+        //{
+        //    DateTime CheckDT = DateTime.Now.AddMinutes(-1 * _RemoveOfflineCacheMin);
+        //    ClientInfo[] OfflineClientlist = ClientList.Where(w => w.IsOffline == true && w.LogOutDT < CheckDT).ToArray();
 
-            Console.WriteLine("开始清理离线过久的玩家的缓存");
-            for (int i = 0; i < OfflineClientlist.Length; i++)
-            {
-                //to do 掉线处理
-                RemoveClient(OfflineClientlist[i]);
-            }
-            GC.Collect();
-        }
+        //    Console.WriteLine("开始清理离线过久的玩家的缓存");
+        //    for (int i = 0; i < OfflineClientlist.Length; i++)
+        //    {
+        //        //to do 掉线处理
+        //        RemoveClient(OfflineClientlist[i]);
+        //    }
+        //    GC.Collect();
+        //}
 
 
         //通用处理
@@ -118,6 +130,8 @@ namespace ServerCore.Manager
         /// <param name="client"></param>
         public void RemoveClient(ClientInfo client)
         {
+            EventSystem.Instance.PostEvent(EEvent.OnUserLeave, client.UID);
+
             lock (ClientList)
             {
                 if (_DictUIDClient.ContainsKey(client.UID))
@@ -150,22 +164,21 @@ namespace ServerCore.Manager
         }
 
 
-        /// <summary>
-        /// 设置玩家离线
-        /// </summary>
-        /// <param name="sk"></param>
-        public void SetClientOfflineForSocket(Socket sk)
-        {
-            if (!_DictSocketClient.ContainsKey(sk))
-                return;
+        ///// <summary>
+        ///// 设置玩家离线
+        ///// </summary>
+        ///// <param name="sk"></param>
+        //public void SetClientOfflineForSocket(Socket sk)
+        //{
+        //    if (!_DictSocketClient.ContainsKey(sk))
+        //        return;
+        //    Console.WriteLine("标记玩家UID" + _DictSocketClient[sk].UID + "为离线");
+        //    _DictSocketClient[sk].IsOffline = true;
+        //    _DictSocketClient[sk].LogOutDT = DateTime.Now;
+        //    EventSystem.Instance.PostEvent(EEvent.OnUserLeave, _DictSocketClient[sk].UID);
+        //}
 
-            Console.WriteLine("标记玩家UID" + _DictSocketClient[sk].UID + "为离线");
-            _DictSocketClient[sk].IsOffline = true;
-            _DictSocketClient[sk].LogOutDT = DateTime.Now;
-            EventSystem.Instance.PostEvent(EEvent.OnUserLeave, _DictSocketClient[sk].UID);
-        }
-
-        public void RemoveClientForSocket(Socket sk)
+        public void RemoveClientBySocket(Socket sk)
         {
             if (!_DictSocketClient.ContainsKey(sk))
                 return;

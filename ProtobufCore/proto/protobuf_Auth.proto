@@ -15,15 +15,23 @@ enum CommandID
 	CMD_USER_LEAVE = 5032;  //用户下线 下行 对应 Protobuf_UserOffline_RESP
 	CMD_USER_STATE_UPDATE = 5033;  //更新在线用户状态 下行 对应 Protobuf_UserState_RESP
 	
-	//CMD_TUNNEL_UDPSERVER_INFO = 6000;  //UDP服务器信息 上行 | 下行 对应 Protobuf_UDPServer_Info | Protobuf_UDPServer_Info_RESP
-	//CMD_TUNNEL_2Server_OK = 6001;  //和服务器UDP建立连接 下行 对应 Protobuf_MakeTunnel_RESP
-	//CMD_TUNNEL_MAKE = 6002;  //请求打洞 上行 | 下行 对应 Protobuf_MakeTunnel | Protobuf_MakeTunnel_RESP
+	CMD_TCPTUNNEL_HELLO = 5001; //TCP打洞请求 上行 | 下行 对应 Protobuf_TcpTunnel_HellToSev | Protobuf_TcpTunnel_HellToSev_RESP
+	CMD_TCPTUNNEL_DO = 5002; //TCP打洞请求 下行 对应 Protobuf_TcpTunnel_DoTunnel | Protobuf_TcpTunnel_DoTunnel_RESP
+	
+	CMD_TCP_P2P_CHAT = 10001; //TCPP2P聊天 Protobuf_TcpP2P_Chat
+	
+	//TCPP2P 文件传输上下行分开
+	CMD_TCP_P2P_FILEPUSH_CONFIRM = 11001; //TCPP2文件传输 上行 对应 Protobuf_TcpP2P_FilePushConfirm
+	CMD_TCP_P2P_FILEPUSH_CONFIRM_RESP = 11002; //TCPP2文件传输 下行 对应 Protobuf_TcpP2P_FilePushConfirm_RESP
+	CMD_TCP_P2P_FILEPUSH = 11003; //TCPP2文件传输 过程 上行 对应 Protobuf_TcpP2P_FilePush
+	CMD_TCP_P2P_FILEPUSH_RESP = 11004; //TCPP2文件传输 过程 下行 对应 Protobuf_TcpP2P_FilePush_RESP
 }
 
 enum ErrorCode
 {
     ERROR_DEFAUL = 0;//缺省不使用
 	ERROR_OK = 1;   //成功
+	ERROR_NOTFIND = 100;   //用户不存在
 }
 
 enum LoginType
@@ -66,6 +74,8 @@ message Protobuf_Login_RESP
 	string LastLoginDate = 2;//上次登录时间（只用于呈现的字符串，若界面需求需要）
 	string RegDate = 3;//注册时间（只用于呈现的字符串，若界面需求需要）
 	LoginResultStatus Status = 4;//账号状态 （预留） [1]正常[0]被禁封
+	int64 UID = 5;//UID
+	string NickName = 6;//昵称
 }
 
 

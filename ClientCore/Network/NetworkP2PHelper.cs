@@ -13,11 +13,11 @@ namespace ClientCore.Network
     /// <summary>
     /// 继承网络库，以支持网络功能
     /// </summary>
-    public class NetworkHelper : NetworkHelperCore
+    public class NetworkP2PHelper : NetworkHelperP2PCore
     {
         ServerType mServerType;
         public long mUID { get; private set; } = -1;
-        public NetworkHelper(ServerType serverType,long UID = -1)
+        public NetworkP2PHelper(ServerType serverType,long UID = -1)
         {
             //指定接收服务器数据事件
             OnDataCallBack += GetDataCallBack;

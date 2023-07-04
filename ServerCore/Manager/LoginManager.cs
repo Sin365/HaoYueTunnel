@@ -23,7 +23,9 @@ namespace ServerCore.Manager
                 Status = LoginResultStatus.Ok,
                 RegDate = "",
                 LastLoginDate = "",
-                Token = ""
+                Token = "",
+                UID = cinfo.UID,
+                NickName= cinfo.NickName,
             });
 
             ServerManager.g_ClientMgr.ClientSend(cinfo, (int)CommandID.CmdLogin, (int)ErrorCode.ErrorOk, respData);

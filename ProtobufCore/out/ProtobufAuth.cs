@@ -28,27 +28,32 @@ namespace AxibugProtobuf {
             "dG9idWZfTG9naW4SLAoJbG9naW5UeXBlGAEgASgOMhkuQXhpYnVnUHJvdG9i",
             "dWYuTG9naW5UeXBlEi4KCmRldmljZVR5cGUYAiABKA4yGi5BeGlidWdQcm90",
             "b2J1Zi5EZXZpY2VUeXBlEg8KB0FjY291bnQYAyABKAkSEAoIUGFzc3dvcmQY",
-            "BCABKAkifwoTUHJvdG9idWZfTG9naW5fUkVTUBINCgVUb2tlbhgBIAEoCRIV",
-            "Cg1MYXN0TG9naW5EYXRlGAIgASgJEg8KB1JlZ0RhdGUYAyABKAkSMQoGU3Rh",
-            "dHVzGAQgASgOMiEuQXhpYnVnUHJvdG9idWYuTG9naW5SZXN1bHRTdGF0dXMi",
-            "IwoQUHJvdG9idWZfQ2hhdE1zZxIPCgdDaGF0TXNnGAEgASgJIkgKFVByb3Rv",
-            "YnVmX0NoYXRNc2dfUkVTUBIQCghOaWNrTmFtZRgBIAEoCRIPCgdDaGF0TXNn",
-            "GAIgASgJEgwKBERhdGUYAyABKAMqnAEKCUNvbW1hbmRJRBIOCgpDTURfREVG",
-            "QVVMEAASDgoJQ01EX0xPR0lOENAPEhAKC0NNRF9DSEFUTVNHEKAfEhgKE0NN",
-            "RF9VU0VSX09OTElORUxJU1QQiCcSEgoNQ01EX1VTRVJfSk9JThCnJxITCg5D",
-            "TURfVVNFUl9MRUFWRRCoJxIaChVDTURfVVNFUl9TVEFURV9VUERBVEUQqScq",
-            "KwoJRXJyb3JDb2RlEhAKDEVSUk9SX0RFRkFVTBAAEgwKCEVSUk9SX09LEAEq",
-            "PgoJTG9naW5UeXBlEg8KC0Jhc2VEZWZhdWx0EAASDgoKSGFvWXVlQXV0aBAB",
-            "EgcKA0JGMxADEgcKA0JGNBAEKksKCkRldmljZVR5cGUSFgoSRGV2aWNlVHlw",
-            "ZV9EZWZhdWx0EAASBgoCUEMQARILCgdBbmRyb2lkEAISBwoDSU9TEAMSBwoD",
-            "UFNWEAQqTgoRTG9naW5SZXN1bHRTdGF0dXMSIQodTG9naW5SZXN1bHRTdGF0",
-            "dXNfQmFzZURlZmF1bHQQABIGCgJPSxABEg4KCkFjY291bnRFcnIQAkICSAFi",
-            "BnByb3RvMw=="));
+            "BCABKAkingEKE1Byb3RvYnVmX0xvZ2luX1JFU1ASDQoFVG9rZW4YASABKAkS",
+            "FQoNTGFzdExvZ2luRGF0ZRgCIAEoCRIPCgdSZWdEYXRlGAMgASgJEjEKBlN0",
+            "YXR1cxgEIAEoDjIhLkF4aWJ1Z1Byb3RvYnVmLkxvZ2luUmVzdWx0U3RhdHVz",
+            "EgsKA1VJRBgFIAEoAxIQCghOaWNrTmFtZRgGIAEoCSIjChBQcm90b2J1Zl9D",
+            "aGF0TXNnEg8KB0NoYXRNc2cYASABKAkiSAoVUHJvdG9idWZfQ2hhdE1zZ19S",
+            "RVNQEhAKCE5pY2tOYW1lGAEgASgJEg8KB0NoYXRNc2cYAiABKAkSDAoERGF0",
+            "ZRgDIAEoAyrqAgoJQ29tbWFuZElEEg4KCkNNRF9ERUZBVUwQABIOCglDTURf",
+            "TE9HSU4Q0A8SEAoLQ01EX0NIQVRNU0cQoB8SGAoTQ01EX1VTRVJfT05MSU5F",
+            "TElTVBCIJxISCg1DTURfVVNFUl9KT0lOEKcnEhMKDkNNRF9VU0VSX0xFQVZF",
+            "EKgnEhoKFUNNRF9VU0VSX1NUQVRFX1VQREFURRCpJxIYChNDTURfVENQVFVO",
+            "TkVMX0hFTExPEIknEhUKEENNRF9UQ1BUVU5ORUxfRE8QiicSFQoQQ01EX1RD",
+            "UF9QMlBfQ0hBVBCRThIhChxDTURfVENQX1AyUF9GSUxFUFVTSF9DT05GSVJN",
+            "EPlVEiYKIUNNRF9UQ1BfUDJQX0ZJTEVQVVNIX0NPTkZJUk1fUkVTUBD6VRIZ",
+            "ChRDTURfVENQX1AyUF9GSUxFUFVTSBD7VRIeChlDTURfVENQX1AyUF9GSUxF",
+            "UFVTSF9SRVNQEPxVKj4KCUVycm9yQ29kZRIQCgxFUlJPUl9ERUZBVUwQABIM",
+            "CghFUlJPUl9PSxABEhEKDUVSUk9SX05PVEZJTkQQZCo+CglMb2dpblR5cGUS",
+            "DwoLQmFzZURlZmF1bHQQABIOCgpIYW9ZdWVBdXRoEAESBwoDQkYzEAMSBwoD",
+            "QkY0EAQqSwoKRGV2aWNlVHlwZRIWChJEZXZpY2VUeXBlX0RlZmF1bHQQABIG",
+            "CgJQQxABEgsKB0FuZHJvaWQQAhIHCgNJT1MQAxIHCgNQU1YQBCpOChFMb2dp",
+            "blJlc3VsdFN0YXR1cxIhCh1Mb2dpblJlc3VsdFN0YXR1c19CYXNlRGVmYXVs",
+            "dBAAEgYKAk9LEAESDgoKQWNjb3VudEVychACQgJIAWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::AxibugProtobuf.CommandID), typeof(global::AxibugProtobuf.ErrorCode), typeof(global::AxibugProtobuf.LoginType), typeof(global::AxibugProtobuf.DeviceType), typeof(global::AxibugProtobuf.LoginResultStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::AxibugProtobuf.Protobuf_Login), global::AxibugProtobuf.Protobuf_Login.Parser, new[]{ "LoginType", "DeviceType", "Account", "Password" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::AxibugProtobuf.Protobuf_Login_RESP), global::AxibugProtobuf.Protobuf_Login_RESP.Parser, new[]{ "Token", "LastLoginDate", "RegDate", "Status" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::AxibugProtobuf.Protobuf_Login_RESP), global::AxibugProtobuf.Protobuf_Login_RESP.Parser, new[]{ "Token", "LastLoginDate", "RegDate", "Status", "UID", "NickName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AxibugProtobuf.Protobuf_ChatMsg), global::AxibugProtobuf.Protobuf_ChatMsg.Parser, new[]{ "ChatMsg" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AxibugProtobuf.Protobuf_ChatMsg_RESP), global::AxibugProtobuf.Protobuf_ChatMsg_RESP.Parser, new[]{ "NickName", "ChatMsg", "Date" }, null, null, null, null)
           }));
@@ -86,6 +91,34 @@ namespace AxibugProtobuf {
     ///更新在线用户状态 下行 对应 Protobuf_UserState_RESP
     /// </summary>
     [pbr::OriginalName("CMD_USER_STATE_UPDATE")] CmdUserStateUpdate = 5033,
+    /// <summary>
+    ///TCP打洞请求 上行 | 下行 对应 Protobuf_TcpTunnel_HellToSev | Protobuf_TcpTunnel_HellToSev_RESP
+    /// </summary>
+    [pbr::OriginalName("CMD_TCPTUNNEL_HELLO")] CmdTcptunnelHello = 5001,
+    /// <summary>
+    ///TCP打洞请求 下行 对应 Protobuf_TcpTunnel_DoTunnel | Protobuf_TcpTunnel_DoTunnel_RESP
+    /// </summary>
+    [pbr::OriginalName("CMD_TCPTUNNEL_DO")] CmdTcptunnelDo = 5002,
+    /// <summary>
+    ///TCPP2P聊天 Protobuf_TcpP2P_Chat
+    /// </summary>
+    [pbr::OriginalName("CMD_TCP_P2P_CHAT")] CmdTcpP2PChat = 10001,
+    /// <summary>
+    ///TCPP2P 文件传输上下行分开
+    /// </summary>
+    [pbr::OriginalName("CMD_TCP_P2P_FILEPUSH_CONFIRM")] CmdTcpP2PFilepushConfirm = 11001,
+    /// <summary>
+    ///TCPP2文件传输 下行 对应 Protobuf_TcpP2P_FilePushConfirm_RESP
+    /// </summary>
+    [pbr::OriginalName("CMD_TCP_P2P_FILEPUSH_CONFIRM_RESP")] CmdTcpP2PFilepushConfirmResp = 11002,
+    /// <summary>
+    ///TCPP2文件传输 过程 上行 对应 Protobuf_TcpP2P_FilePush
+    /// </summary>
+    [pbr::OriginalName("CMD_TCP_P2P_FILEPUSH")] CmdTcpP2PFilepush = 11003,
+    /// <summary>
+    ///TCPP2文件传输 过程 下行 对应 Protobuf_TcpP2P_FilePush_RESP
+    /// </summary>
+    [pbr::OriginalName("CMD_TCP_P2P_FILEPUSH_RESP")] CmdTcpP2PFilepushResp = 11004,
   }
 
   public enum ErrorCode {
@@ -97,6 +130,10 @@ namespace AxibugProtobuf {
     ///成功
     /// </summary>
     [pbr::OriginalName("ERROR_OK")] ErrorOk = 1,
+    /// <summary>
+    ///用户不存在
+    /// </summary>
+    [pbr::OriginalName("ERROR_NOTFIND")] ErrorNotfind = 100,
   }
 
   public enum LoginType {
@@ -463,6 +500,8 @@ namespace AxibugProtobuf {
       lastLoginDate_ = other.lastLoginDate_;
       regDate_ = other.regDate_;
       status_ = other.status_;
+      uID_ = other.uID_;
+      nickName_ = other.nickName_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -527,6 +566,34 @@ namespace AxibugProtobuf {
       }
     }
 
+    /// <summary>Field number for the "UID" field.</summary>
+    public const int UIDFieldNumber = 5;
+    private long uID_;
+    /// <summary>
+    ///UID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long UID {
+      get { return uID_; }
+      set {
+        uID_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "NickName" field.</summary>
+    public const int NickNameFieldNumber = 6;
+    private string nickName_ = "";
+    /// <summary>
+    ///昵称
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string NickName {
+      get { return nickName_; }
+      set {
+        nickName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Protobuf_Login_RESP);
@@ -544,6 +611,8 @@ namespace AxibugProtobuf {
       if (LastLoginDate != other.LastLoginDate) return false;
       if (RegDate != other.RegDate) return false;
       if (Status != other.Status) return false;
+      if (UID != other.UID) return false;
+      if (NickName != other.NickName) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -554,6 +623,8 @@ namespace AxibugProtobuf {
       if (LastLoginDate.Length != 0) hash ^= LastLoginDate.GetHashCode();
       if (RegDate.Length != 0) hash ^= RegDate.GetHashCode();
       if (Status != global::AxibugProtobuf.LoginResultStatus.BaseDefault) hash ^= Status.GetHashCode();
+      if (UID != 0L) hash ^= UID.GetHashCode();
+      if (NickName.Length != 0) hash ^= NickName.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -586,6 +657,14 @@ namespace AxibugProtobuf {
         output.WriteRawTag(32);
         output.WriteEnum((int) Status);
       }
+      if (UID != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(UID);
+      }
+      if (NickName.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(NickName);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -611,6 +690,14 @@ namespace AxibugProtobuf {
         output.WriteRawTag(32);
         output.WriteEnum((int) Status);
       }
+      if (UID != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(UID);
+      }
+      if (NickName.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(NickName);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -631,6 +718,12 @@ namespace AxibugProtobuf {
       }
       if (Status != global::AxibugProtobuf.LoginResultStatus.BaseDefault) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
+      }
+      if (UID != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(UID);
+      }
+      if (NickName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(NickName);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -654,6 +747,12 @@ namespace AxibugProtobuf {
       }
       if (other.Status != global::AxibugProtobuf.LoginResultStatus.BaseDefault) {
         Status = other.Status;
+      }
+      if (other.UID != 0L) {
+        UID = other.UID;
+      }
+      if (other.NickName.Length != 0) {
+        NickName = other.NickName;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -685,6 +784,14 @@ namespace AxibugProtobuf {
             Status = (global::AxibugProtobuf.LoginResultStatus) input.ReadEnum();
             break;
           }
+          case 40: {
+            UID = input.ReadInt64();
+            break;
+          }
+          case 50: {
+            NickName = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -713,6 +820,14 @@ namespace AxibugProtobuf {
           }
           case 32: {
             Status = (global::AxibugProtobuf.LoginResultStatus) input.ReadEnum();
+            break;
+          }
+          case 40: {
+            UID = input.ReadInt64();
+            break;
+          }
+          case 50: {
+            NickName = input.ReadString();
             break;
           }
         }

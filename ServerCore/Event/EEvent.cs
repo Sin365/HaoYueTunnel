@@ -10,6 +10,10 @@ namespace ServerCore.Event
     {
         // 添加你自己需要的事件类型
         OnUserJoin,
-        OnUserLeave
+        OnUserLeave,
+
+
+        //连接管理
+        OnSocketDisconnect,
     }
 }
